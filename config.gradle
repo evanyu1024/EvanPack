@@ -1,0 +1,19 @@
+ext {
+
+    compileSdkVersion = 23
+    buildToolsVersion = "23.0.3"
+    applicationId = "com.evan.demo"
+    minSdkVersion = 14
+    targetSdkVersion = 23
+    versionCode = 1
+    versionName = "1.0"
+
+    dependencies = [
+            "appcompat-v7"        : 'com.android.support:appcompat-v7:23.4.0',
+            "butterknife"         : 'com.jakewharton:butterknife:8.0.1',
+            "design"              : 'com.android.support:design:23.4.0',
+            "okhttp"              : 'com.squareup.okhttp3:okhttp:3.3.1',
+            "butterknife-compiler": 'com.jakewharton:butterknife-compiler:8.0.1',
+            "retrofit"            : 'com.squareup.retrofit2:converter-gson:2.0.2'
+    ]
+}

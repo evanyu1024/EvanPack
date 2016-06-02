@@ -1,0 +1,11 @@
+### OkHttp3
+#### 添加gradle依赖
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+#### 相关操作
+1. 普通的get请求
+2. 普通的post请求
+3. 文件上传
+4. 文件下载
+5. 加载图片
+6. 支持请求回调，直接返回对象、对象集合
+7. 支持session的保持
