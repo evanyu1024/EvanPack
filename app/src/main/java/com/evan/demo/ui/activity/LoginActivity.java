@@ -11,7 +11,6 @@ import android.widget.EditText;
 import com.evan.demo.R;
 import com.evan.demo.contract.LoginContract;
 import com.evan.demo.presenter.LoginPresenter;
-import com.evan.demo.utils.LogUtils;
 import com.evan.demo.utils.ToastUtils;
 
 import butterknife.BindView;
@@ -41,9 +40,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         mBtnLogin.setOnClickListener(this);
         mBtnClear.setOnClickListener(this);
-
-        LogUtils.d("log...info");
-        // Log.i("LogUtils", "log...info222", new Throwable("throwable"));
     }
 
     @Override
@@ -101,14 +97,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void showEmptyPrompt() {
         // Snackbar.make(mBtnLogin, "账号或密码不能为空", Snackbar.LENGTH_SHORT).show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                ToastUtils.showToastLong("账号或密码不能为空");
-            }
-        }).start();
-        // ToastUtils.showToastLong("账号或密码不能为空");
-
+        ToastUtils.showToastLong("账号或密码不能为空");
     }
 
     @Override
