@@ -36,7 +36,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void loginSuccess(User user) {
                 // 登陆成功
-                mView.enterInMainActivity();
+                mView.enterMainActivity();
                 mView.hideLoginProgress();
             }
 

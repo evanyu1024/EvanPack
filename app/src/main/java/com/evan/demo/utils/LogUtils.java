@@ -12,25 +12,25 @@ import java.util.Locale;
 public class LogUtils {
 
     /** 日志输出时的TAG */
-    private static String TAG = "LogUtils";
+    private static String TAG = "mtag";
 
     /** 日志输出级别V */
-    public static final int LEVEL_VERBOSE = 1;
+    public static final int LEVEL_VERBOSE = 6;
 
     /** 日志输出级别D */
-    public static final int LEVEL_DEBUG = 2;
+    public static final int LEVEL_DEBUG = 5;
 
     /** 日志输出级别I */
-    public static final int LEVEL_INFO = 3;
+    public static final int LEVEL_INFO = 4;
 
     /** 日志输出级别W */
-    public static final int LEVEL_WARN = 4;
+    public static final int LEVEL_WARN = 3;
 
     /** 日志输出级别E */
-    public static final int LEVEL_ERROR = 5;
+    public static final int LEVEL_ERROR = 2;
 
     /** 日志输出级别A */
-    public static final int LEVEL_ASSERT = 6;
+    public static final int LEVEL_ASSERT = 1;
 
     /** 是否是调试模式(是否输出LOG) */
     public static boolean isDebug = true;

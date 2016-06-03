@@ -14,42 +14,28 @@ public interface LoginContract {
         void clearUserName();
         void clearUserPwd();
 
-        /**
-         * 提示账号或密码为空
-         */
+        /** 提示账号或密码为空 */
         void showEmptyPrompt();
 
-        /**
-         * 提示正在登陆
-         */
+        /** 提示正在登陆 */
         void showLoginProgress();
 
-        /**
-         * 隐藏正在登陆的提示
-         */
+        /** 隐藏正在登陆的提示 */
         void hideLoginProgress();
 
-        /**
-         * 提示登陆失败
-         */
+        /** 提示登陆失败 */
         void showLoginFailedPrompt();
 
-        /**
-         * 进入主页面
-         */
-        void enterInMainActivity();
+        /** 进入主页面 */
+        void enterMainActivity();
 
     }
 
     interface Presenter extends BasePresenter {
-        /**
-         * 登陆
-         */
+        /** 登陆 */
         void login();
 
-        /**
-         * 清空输入框
-         */
+        /** 清空输入框 */
         void clear();
     }
 

@@ -3,9 +3,7 @@ package com.evan.demo.ui.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +12,7 @@ import com.evan.demo.R;
 import com.evan.demo.contract.LoginContract;
 import com.evan.demo.presenter.LoginPresenter;
 import com.evan.demo.utils.LogUtils;
+import com.evan.demo.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,8 +42,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         mBtnLogin.setOnClickListener(this);
         mBtnClear.setOnClickListener(this);
 
-        LogUtils.i("log...info");
-        Log.i("LogUtils", "log...info222", new Throwable("throwable"));
+        LogUtils.d("log...info");
+        // Log.i("LogUtils", "log...info222", new Throwable("throwable"));
     }
 
     @Override
@@ -64,27 +63,28 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void showLoginProgress() {
-       if(mDialog == null) {
-           mDialog = new ProgressDialog(this);
-           mDialog.setMessage("正在登陆...");
-       }
+        if (mDialog == null) {
+            mDialog = new ProgressDialog(this);
+            mDialog.setMessage("正在登陆...");
+        }
         mDialog.show();
     }
 
     @Override
     public void hideLoginProgress() {
-        if(mDialog != null) {
+        if (mDialog != null) {
             mDialog.dismiss();
         }
     }
 
     @Override
     public void showLoginFailedPrompt() {
-        Snackbar.make(mBtnLogin, "账号或密码错误", Snackbar.LENGTH_SHORT).show();
+        // Snackbar.make(mBtnLogin, "账号或密码错误", Snackbar.LENGTH_SHORT).show();
+        ToastUtils.showToastShort("帐号或密码错误");
     }
 
     @Override
-    public void enterInMainActivity() {
+    public void enterMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
     }
 
@@ -100,7 +100,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void showEmptyPrompt() {
-        Snackbar.make(mBtnLogin, "账号或密码不能为空", Snackbar.LENGTH_SHORT).show();
+        // Snackbar.make(mBtnLogin, "账号或密码不能为空", Snackbar.LENGTH_SHORT).show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ToastUtils.showToastLong("账号或密码不能为空");
+            }
+        }).start();
+        // ToastUtils.showToastLong("账号或密码不能为空");
+
     }
 
     @Override

@@ -1,1 +1,1 @@
-include ':app', ':OkHttpDemo', ':RetrofitDemo'
+include ':app', ':OkHttpDemo', ':RetrofitDemo', ':ImageLoader'
