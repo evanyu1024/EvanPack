@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/res/merged/androidTest/debug/layout/pull_to_refresh_header_vertical.xml",
+        "source": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/res/layout/pull_to_refresh_header_vertical.xml"
+    },
+    {
+        "merged": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/res/merged/androidTest/debug/layout/pull_to_refresh_header_horizontal.xml",
+        "source": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/res/layout/pull_to_refresh_header_horizontal.xml"
+    }
+]
