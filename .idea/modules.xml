@@ -5,8 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/EvanPack.iml" filepath="$PROJECT_DIR$/EvanPack.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageLoader/ImageLoader.iml" filepath="$PROJECT_DIR$/ImageLoader/ImageLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" filepath="$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" filepath="$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" filepath="$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UmengDemo/UmengDemo.iml" filepath="$PROJECT_DIR$/UmengDemo/UmengDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_ptr/lib_ptr.iml" filepath="$PROJECT_DIR$/lib_ptr/lib_ptr.iml" />
     </modules>
   </component>
 </project>
