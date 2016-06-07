@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowGifActivity"></activity>
+        <activity android:name=".GlideDemo"></activity>
     </application>
 
 </manifest>
