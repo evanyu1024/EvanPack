@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.evan.pulltorefreshdemo.MainActivity">
+    tools:context="com.evan.pulltorefreshdemo.PullToRefreshActivity">
 
-    <ListView
-        android:id="@+id/listView"
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/ptr_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

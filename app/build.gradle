@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt' // 使用butterknife需要添加的代码
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     def globalConfig = rootProject.extensions.getByName("ext")
