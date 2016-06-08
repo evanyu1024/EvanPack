@@ -11,7 +11,8 @@ import android.widget.ListView;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ActivityInfo[] activityData = {
-            new ActivityInfo("PullToRefresh", PullToRefreshActivity.class)
+            new ActivityInfo("PullToRefresh", PtrActivity.class),
+            new ActivityInfo("UltraPullToRefresh", UltraPtrActivity.class)
     };
 
     @butterknife.BindView(R.id.listView)

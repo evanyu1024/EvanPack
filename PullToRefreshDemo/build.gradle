@@ -36,4 +36,5 @@ dependencies {
     compile project(':lib_ptr')
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
+    compile rootProject.ext.dependencies["ultra-ptr"]
 }

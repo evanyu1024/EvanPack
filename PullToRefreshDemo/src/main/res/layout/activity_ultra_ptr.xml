@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<in.srain.cube.views.ptr.PtrClassicFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ptr_fml"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.evan.pulltorefreshdemo.UltraPtrActivity">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</in.srain.cube.views.ptr.PtrClassicFrameLayout>

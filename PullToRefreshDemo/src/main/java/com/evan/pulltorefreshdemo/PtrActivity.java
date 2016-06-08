@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PullToRefreshActivity extends AppCompatActivity {
+public class PtrActivity extends AppCompatActivity {
 
     private Activity mContext = this;
 
