@@ -20,6 +20,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 多渠道打包(重复代码过多,后面有更简洁的代码实现)
+    /*productFlavors {
+        store360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "store360"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+        meizu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "meizu"]
+        }
+    }*/
+
+    productFlavors {
+        store360 {}
+        xiaomi {}
+        meizu {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
 }
 
 // 使用butterknife需要添加的代码
@@ -58,6 +81,7 @@ dependencies {
     // butterknife
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
+    compile rootProject.ext.dependencies["umeng-sdk"]
 
 }
 

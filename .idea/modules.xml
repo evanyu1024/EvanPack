@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" filepath="$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" filepath="$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/UmengDemo/UmengDemo.iml" filepath="$PROJECT_DIR$/UmengDemo/UmengDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" filepath="$PROJECT_DIR$/WebViewDemo/WebViewDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_ptr/lib_ptr.iml" filepath="$PROJECT_DIR$/lib_ptr/lib_ptr.iml" />
     </modules>

@@ -1,11 +1,10 @@
 package com.evan.demo.ui.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.evan.demo.R;
 
-public class FeedbackActivity extends AppCompatActivity {
+public class FeedbackActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
