@@ -11,15 +11,10 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_doget"
+        android:id="@+id/btn_getdata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="get请求"
+        android:text="请求天气数据"
         android:textAllCaps="false" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="post请求"
-        android:textAllCaps="false" />
 </LinearLayout>

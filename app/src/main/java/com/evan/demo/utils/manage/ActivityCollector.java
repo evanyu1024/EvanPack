@@ -1,4 +1,4 @@
-package com.evan.demo.utils;
+package com.evan.demo.utils.manage;
 
 import android.app.Activity;
 

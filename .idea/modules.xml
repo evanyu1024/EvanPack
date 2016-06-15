@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataBindingDemo/databindingdemo.iml" filepath="$PROJECT_DIR$/DataBindingDemo/databindingdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/EvanPack.iml" filepath="$PROJECT_DIR$/EvanPack.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageLoader/ImageLoader.iml" filepath="$PROJECT_DIR$/ImageLoader/ImageLoader.iml" />
       <module fileurl="file://$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" filepath="$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" />

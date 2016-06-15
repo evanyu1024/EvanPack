@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+// 应用 Bugtags 插件
+// apply plugin: 'com.bugtags.library.plugin'
 
 android {
     def globalConfig = rootProject.extensions.getByName("ext")
@@ -13,6 +15,14 @@ android {
         targetSdkVersion globalConfig.getAt("targetSdkVersion")
         versionCode globalConfig.getAt("versionCode")
         versionName globalConfig.getAt("versionName")
+
+        // 开启multidex,解决方法数上限为65536的限制
+        multiDexEnabled = true
+
+        /*ndk {
+            // 设置支持的 SO 库构架
+            abiFilters 'armeabi'// 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }*/
     }
     buildTypes {
         release {
@@ -54,6 +64,16 @@ buildscript {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
+/*
+bugtags {
+    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
+    appKey "ec4af96c497666a74266af43b3c8cbfb"  //这里是你的 appKey
+    appSecret "APP_SECRET"    //这里是你的 appSecret，管理员在设置页可以查看
+    mappingUploadEnabled true
+
+    //网络跟踪功能配置(企业版)
+    trackingNetworkEnabled true
+}*/
 
 // libs中存在arr文件时,需要添加一下代码,并需要在dependencies中引用
 repositories {
@@ -82,6 +102,10 @@ dependencies {
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
     compile rootProject.ext.dependencies["umeng-sdk"]
+    compile rootProject.ext.dependencies["retrofit"]
 
+    compile 'com.android.support:multidex:1.0.0'
+
+    // compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }
 

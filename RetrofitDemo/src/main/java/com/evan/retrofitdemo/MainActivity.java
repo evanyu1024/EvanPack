@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_doget)
-    public void doGet(View view){
+    @OnClick(R.id.btn_getdata)
+    public void getDataFromNet(View view){
         Log.i(TAG, "doGet()");
         // 创建Retrofit对象
         Retrofit retrofit = new Retrofit.Builder()
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         WeatherService weatherService = retrofit.create(WeatherService.class);
         // 获取Call对象
         Call<ResponseBody> call = weatherService.getWeatherData();
+        // Call<ResponseBody> call = weatherService.getWeatherData("weather.today", "1", NetConstant.APP_KEY, NetConstant.SIGN, "json");
         // 发起get异步请求(回调方法运行在主线程中)
         call.enqueue(new Callback<ResponseBody>() {
             @Override

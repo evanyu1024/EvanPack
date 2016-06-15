@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.evan.demo.utils.ActivityCollector;
+import com.evan.demo.utils.manage.ActivityCollector;
 import com.umeng.analytics.MobclickAgent;
 
 /**

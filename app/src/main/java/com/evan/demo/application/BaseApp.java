@@ -3,7 +3,9 @@ package com.evan.demo.application;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import android.support.multidex.MultiDex;
 
+import com.evan.demo.utils.manage.CrashHandler;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -22,6 +24,13 @@ public class BaseApp extends Application {
         mContext = this;
 
         initUMeng();
+        initCrashHandler();
+
+    }
+
+    private void initCrashHandler() {
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
     }
 
     private void initUMeng() {
@@ -31,6 +40,12 @@ public class BaseApp extends Application {
         // 设置是否对日志信息进行加密, 默认false(不加密)
         // AnalyticsConfig.enableEncrypt(boolean enable);//6.0.0版本以前
         // MobclickAgent.enableEncrypt(true);//6.0.0版本及以后
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public static Context getContext() {

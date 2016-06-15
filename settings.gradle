@@ -1,2 +1,2 @@
-include ':app', ':OkHttpDemo', ':RetrofitDemo', ':ImageLoader', ':UmengDemo', ':PullToRefreshDemo', ':WebViewDemo'
+include ':app', ':OkHttpDemo', ':RetrofitDemo', ':ImageLoader', ':UmengDemo', ':PullToRefreshDemo', ':WebViewDemo', ':DataBindingDemo'
 include ':lib_ptr'
