@@ -1,2 +1,2 @@
-include ':app', ':OkHttpDemo', ':RetrofitDemo', ':ImageLoader', ':UmengDemo', ':PullToRefreshDemo', ':WebViewDemo', ':DataBindingDemo'
+include ':app', ':OkHttpDemo', ':RetrofitDemo', ':ImageLoader', ':UmengDemo', ':PullToRefreshDemo', ':WebViewDemo', ':DataBindingDemo', ':RxJavaDemo'
 include ':lib_ptr'
