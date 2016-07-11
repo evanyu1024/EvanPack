@@ -8,27 +8,11 @@
         "source": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/res/anim/slide_out_to_bottom.xml"
     },
     {
-        "merged": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_out_to_top.xml",
-        "source": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/bundles/debug/res/anim/slide_out_to_top.xml"
-    },
-    {
         "merged": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_in_from_bottom.xml",
         "source": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/res/anim/slide_in_from_bottom.xml"
     },
     {
         "merged": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_out_to_top.xml",
         "source": "/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/res/anim/slide_out_to_top.xml"
-    },
-    {
-        "merged": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_in_from_top.xml",
-        "source": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/bundles/debug/res/anim/slide_in_from_top.xml"
-    },
-    {
-        "merged": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_out_to_bottom.xml",
-        "source": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/bundles/debug/res/anim/slide_out_to_bottom.xml"
-    },
-    {
-        "merged": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/res/merged/androidTest/debug/anim/slide_in_from_bottom.xml",
-        "source": "/Users/evanyu/workspace_as/EvanPack/lib-ptr/build/intermediates/bundles/debug/res/anim/slide_in_from_bottom.xml"
     }
 ]

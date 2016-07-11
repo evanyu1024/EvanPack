@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private ImageView imageView;
 
-    private String[] items = {"简单get请求", "QueryMap+GSON转换", "下载图片"};
+    private String[] items = {"简单get请求", "QueryMap+GSON转换", "下载图片", "下载大文件"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2: // 下载图片+@url
                         test3();
+                        break;
+                    case 3: // 下载大文件(@Streaming)
+                        test4();
                         break;
                     default:
                         break;
@@ -143,8 +145,16 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                InputStream is = response.body().byteStream();
-                imageView.setImageBitmap(BitmapFactory.decodeStream(is));
+                // InputStream is = response.body().byteStream();
+                // imageView.setImageBitmap(BitmapFactory.decodeStream(is));
+
+                // 默认一次性将文件下载到内存中
+                try {
+                    byte[] data = response.body().bytes();
+                    imageView.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
@@ -152,6 +162,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void test4() {
+        // 下载大文件
+        // 必须在子线程中执行,因为当下载大文件时,需要边下边写(此时一直都在执行网络访问操作)
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                /*
+                // 创建Retrofit对象
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl(NetConstant.BASE_URL)
+                        .addConverterFactory(GsonConverterFactory.create()) // 添加 GsonConverter (使用GSON将JSON数据解析成对象)
+                        .build();
+                // 获取接口的实例
+                MyApiService myApiService = retrofit.create(MyApiService.class);
+                Call<ResponseBody> call = myApiService.downloadBigFile(fileUrl);
+                Response<ResponseBody> response = call.execute();
+                response.body().byteStream();
+                ...
+                */
+            }
+        }).start();
+
     }
 
 

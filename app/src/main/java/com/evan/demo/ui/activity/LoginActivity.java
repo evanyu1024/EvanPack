@@ -15,7 +15,7 @@ import com.evan.demo.utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements LoginContract.View, View.OnClickListener {
+public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     @BindView(R.id.et_account)
     EditText mEtAccount;
@@ -37,6 +37,10 @@ public class LoginActivity extends BaseActivity implements LoginContract.View, V
 
         setPresenter(new LoginPresenter(this));
 
+        setListeners();
+    }
+
+    private void setListeners() {
         mBtnLogin.setOnClickListener(this);
         mBtnClear.setOnClickListener(this);
     }

@@ -1,14 +1,12 @@
 package com.evan.demo.contract;
 
-import com.evan.demo.presenter.BasePresenter;
-import com.evan.demo.ui.BaseView;
-
 /**
+ * 登陆界面接口协议
  * Created by evanyu on 16/5/30.
  */
-public interface LoginContract {
+public interface LoginContract extends BaseContract {
 
-    interface View extends BaseView<Presenter> {
+    interface View extends IBaseView<Presenter> {
         String getUserName();
         String getUserPwd();
         void clearUserName();
@@ -31,7 +29,7 @@ public interface LoginContract {
 
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter extends IBasePresenter {
         /** 登陆 */
         void login();
 
