@@ -1,10 +1,10 @@
 package com.evan.demo.ui.activity;
 
 import android.app.ProgressDialog;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.evan.demo.R;
@@ -15,7 +15,8 @@ import com.evan.demo.utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements LoginContract.View {
+public class LoginActivity extends BaseActivity implements LoginContract.View
+{
 
     @BindView(R.id.et_account)
     EditText mEtAccount;
@@ -42,12 +43,6 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     private void initViews() {
         mBtnLogin.setOnClickListener(this);
-        mCboxPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                mPresenter.rememberAccAndPwd(isChecked);
-            }
-        });
     }
 
     @Override
@@ -69,6 +64,30 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     @Override
     public String getUserPwd() {
         return mEtLoginPwd.getText().toString();
+    }
+
+    @Override
+    public void setUserName(String name) {
+        if (!TextUtils.isEmpty(name)) {
+            mEtAccount.setText(name);
+        }
+    }
+
+    @Override
+    public void setUserPwd(String pwd) {
+        if (!TextUtils.isEmpty(pwd)) {
+            mEtLoginPwd.setText(pwd);
+        }
+    }
+
+    @Override
+    public void setCboxPwdChecked(boolean checked) {
+        mCboxPwd.setChecked(checked);
+    }
+
+    @Override
+    public boolean isRememberAccAndPwd() {
+        return mCboxPwd.isChecked();
     }
 
     @Override

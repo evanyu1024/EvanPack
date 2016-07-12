@@ -14,6 +14,18 @@ public interface LoginContract extends BaseContract {
         /** 获取密码 */
         String getUserPwd();
 
+        /** 设置用户名 */
+        void setUserName(String name);
+
+        /** 设置密码 */
+        void setUserPwd(String pwd);
+
+        /** 设置"记住密码"选项是否被勾选 */
+        void setCboxPwdChecked(boolean checked);
+
+        /** 是否记住密码 */
+        boolean isRememberAccAndPwd();
+
         /** 提示账号或密码为空 */
         void showEmptyPrompt();
 
@@ -36,12 +48,6 @@ public interface LoginContract extends BaseContract {
         /** 登陆 */
         void login();
 
-        /**
-         * 记录或取消记录帐号和密码
-         * @param isRemember 是否记录
-         * @return true:操作成功, false:操作失败
-         */
-        boolean rememberAccAndPwd(boolean isRemember);
     }
 
 }

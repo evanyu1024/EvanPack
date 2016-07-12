@@ -9,7 +9,6 @@ public class User {
     private String pwd;
 
     public User() {
-
     }
 
     public User(String name, String pwd) {
