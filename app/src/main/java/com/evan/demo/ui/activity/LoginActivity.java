@@ -1,10 +1,10 @@
 package com.evan.demo.ui.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.evan.demo.R;
@@ -23,31 +23,42 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
     EditText mEtLoginPwd;
     @BindView(R.id.btn_login)
     Button mBtnLogin;
-    @BindView(R.id.btn_clear)
-    Button mBtnClear;
+    @BindView(R.id.cbox_remember_pwd)
+    CheckBox mCboxPwd;
 
     private LoginContract.Presenter mPresenter;
-    private ProgressDialog mDialog;
+    private ProgressDialog mProgressDialog;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate() {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
-        setPresenter(new LoginPresenter(this));
+        mPresenter = new LoginPresenter(this);
+        mPresenter.onCreate(); // 初始化Presenter
 
-        setListeners();
+        initViews();
     }
 
-    private void setListeners() {
+    private void initViews() {
         mBtnLogin.setOnClickListener(this);
-        mBtnClear.setOnClickListener(this);
+        mCboxPwd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mPresenter.rememberAccAndPwd(isChecked);
+            }
+        });
     }
 
     @Override
-    public void setPresenter(LoginContract.Presenter presenter) {
-        mPresenter = presenter;
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_login:
+                mPresenter.login();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -62,58 +73,35 @@ public class LoginActivity extends BaseActivity implements LoginContract.View {
 
     @Override
     public void showLoginProgress() {
-        if (mDialog == null) {
-            mDialog = new ProgressDialog(this);
-            mDialog.setMessage("正在登陆...");
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("正在登陆...");
         }
-        mDialog.show();
+        mProgressDialog.show();
     }
 
     @Override
     public void hideLoginProgress() {
-        if (mDialog != null) {
-            mDialog.dismiss();
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
         }
     }
 
     @Override
-    public void showLoginFailedPrompt() {
+    public void promptLoginFailed() {
         // Snackbar.make(mBtnLogin, "账号或密码错误", Snackbar.LENGTH_SHORT).show();
         ToastUtils.showToastShort("帐号或密码错误");
     }
 
     @Override
-    public void enterMainActivity() {
-        startActivity(new Intent(this, MainActivity.class));
-    }
-
-    @Override
-    public void clearUserName() {
-
-    }
-
-    @Override
-    public void clearUserPwd() {
-
-    }
-
-    @Override
     public void showEmptyPrompt() {
         // Snackbar.make(mBtnLogin, "账号或密码不能为空", Snackbar.LENGTH_SHORT).show();
-        ToastUtils.showToastLong("账号或密码不能为空");
+        ToastUtils.showToastShort("账号或密码不能为空");
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_login:
-                mPresenter.login();
-                break;
-            case R.id.btn_clear:
-                mPresenter.clear();
-                break;
-            default:
-                break;
-        }
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.onDestroy();
     }
 }

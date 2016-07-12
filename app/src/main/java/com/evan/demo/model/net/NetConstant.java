@@ -1,4 +1,4 @@
-package com.evan.demo.data.net;
+package com.evan.demo.model.net;
 
 /**
  * Created by evanyu on 16/5/31.

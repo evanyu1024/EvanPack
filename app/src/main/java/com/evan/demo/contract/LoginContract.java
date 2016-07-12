@@ -6,11 +6,13 @@ package com.evan.demo.contract;
  */
 public interface LoginContract extends BaseContract {
 
-    interface View extends IBaseView<Presenter> {
+    interface View extends IBaseView {
+
+        /** 获取用户名 */
         String getUserName();
+
+        /** 获取密码 */
         String getUserPwd();
-        void clearUserName();
-        void clearUserPwd();
 
         /** 提示账号或密码为空 */
         void showEmptyPrompt();
@@ -22,19 +24,24 @@ public interface LoginContract extends BaseContract {
         void hideLoginProgress();
 
         /** 提示登陆失败 */
-        void showLoginFailedPrompt();
-
-        /** 进入主页面 */
-        void enterMainActivity();
+        void promptLoginFailed();
 
     }
 
     interface Presenter extends IBasePresenter {
+
+        void onCreate();
+        void onDestroy();
+
         /** 登陆 */
         void login();
 
-        /** 清空输入框 */
-        void clear();
+        /**
+         * 记录或取消记录帐号和密码
+         * @param isRemember 是否记录
+         * @return true:操作成功, false:操作失败
+         */
+        boolean rememberAccAndPwd(boolean isRemember);
     }
 
 }

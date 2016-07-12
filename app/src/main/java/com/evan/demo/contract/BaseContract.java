@@ -8,16 +8,16 @@ public interface BaseContract {
 
     /**
      * View层顶层接口
-     * @param <T>
      */
-    interface IBaseView<T> {
-        void setPresenter(T presenter);
+    interface IBaseView {
+
     }
 
     /**
      * Presenter层顶层接口
      */
     interface IBasePresenter {
+
     }
 
 }

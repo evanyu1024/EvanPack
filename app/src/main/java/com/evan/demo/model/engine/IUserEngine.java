@@ -1,6 +1,6 @@
-package com.evan.demo.data.engine;
+package com.evan.demo.model.engine;
 
-import com.evan.demo.data.bean.User;
+import com.evan.demo.model.bean.User;
 
 /**
  * Created by evanyu on 16/5/30.

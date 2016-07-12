@@ -1,9 +1,9 @@
-package com.evan.demo.data.engine.impl;
+package com.evan.demo.model.engine.impl;
 
-import com.evan.demo.data.bean.Weather;
-import com.evan.demo.data.engine.IWeatherEngine;
-import com.evan.demo.data.net.NetConstant;
-import com.evan.demo.data.net.service.WeatherService;
+import com.evan.demo.model.bean.Weather;
+import com.evan.demo.model.engine.IWeatherEngine;
+import com.evan.demo.model.net.NetConstant;
+import com.evan.demo.model.net.service.WeatherService;
 import com.google.gson.Gson;
 
 import java.io.IOException;

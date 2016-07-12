@@ -1,10 +1,10 @@
-package com.evan.demo.data.engine.impl;
+package com.evan.demo.model.engine.impl;
 
 import android.os.Handler;
 import android.os.SystemClock;
 
-import com.evan.demo.data.bean.User;
-import com.evan.demo.data.engine.IUserEngine;
+import com.evan.demo.model.bean.User;
+import com.evan.demo.model.engine.IUserEngine;
 
 /**
  * Created by evanyu on 16/5/30.

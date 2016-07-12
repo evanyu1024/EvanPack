@@ -12,7 +12,7 @@ import com.umeng.analytics.MobclickAgent;
 /**
  * Created by evanyu on 16/6/8.
  */
-public class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     protected Activity mActivity = this;
 
@@ -20,6 +20,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityCollector.addActivity(this);
+        onCreate();
+    }
+
+    /**
+     * 初始化方法
+     */
+    protected void onCreate() {
+       // empty
     }
 
     @Override

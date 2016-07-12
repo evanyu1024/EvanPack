@@ -1,4 +1,4 @@
-package com.evan.demo.data.net.service;
+package com.evan.demo.model.net.service;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

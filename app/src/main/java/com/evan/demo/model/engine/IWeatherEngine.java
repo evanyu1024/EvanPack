@@ -1,6 +1,6 @@
-package com.evan.demo.data.engine;
+package com.evan.demo.model.engine;
 
-import com.evan.demo.data.bean.Weather;
+import com.evan.demo.model.bean.Weather;
 
 /**
  * Created by evanyu on 16/6/14.

@@ -1,12 +1,11 @@
 package com.evan.demo.presenter;
 
-import android.os.Handler;
 import android.text.TextUtils;
 
 import com.evan.demo.contract.LoginContract;
-import com.evan.demo.data.bean.User;
-import com.evan.demo.data.engine.IUserEngine;
-import com.evan.demo.data.engine.impl.UserEngineImpl;
+import com.evan.demo.model.bean.User;
+import com.evan.demo.model.engine.IUserEngine;
+import com.evan.demo.model.engine.impl.UserEngineImpl;
 
 /**
  * Created by evanyu on 16/5/30.
@@ -14,11 +13,15 @@ import com.evan.demo.data.engine.impl.UserEngineImpl;
 public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginContract.View mView;
-    private Handler mHandler = new Handler();
     private IUserEngine mUserEngine = new UserEngineImpl();
 
     public LoginPresenter(LoginContract.View view) {
         this.mView = view;
+    }
+
+    @Override
+    public void onCreate() {
+
     }
 
     @Override
@@ -36,20 +39,24 @@ public class LoginPresenter implements LoginContract.Presenter {
             @Override
             public void loginSuccess(User user) {
                 // 登陆成功
-                mView.enterMainActivity();
                 mView.hideLoginProgress();
             }
 
             @Override
             public void loginFailed() {
-                mView.showLoginFailedPrompt();
+                mView.promptLoginFailed();
                 mView.hideLoginProgress();
             }
         });
     }
 
     @Override
-    public void clear() {
+    public boolean rememberAccAndPwd(boolean isRemember) {
+        return false;
+    }
+
+    @Override
+    public void onDestroy() {
 
     }
 }

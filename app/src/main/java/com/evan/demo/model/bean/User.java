@@ -1,4 +1,4 @@
-package com.evan.demo.data.bean;
+package com.evan.demo.model.bean;
 
 /**
  * Created by evanyu on 16/5/30.
