@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SwitchTab">
+        <attr name="textLeft" format="string" />
+        <attr name="textRight" format="string" />
+    </declare-styleable>
+
+</resources>
