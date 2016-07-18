@@ -2,62 +2,66 @@ package com.evan.demo.presenter;
 
 import android.text.TextUtils;
 
-import com.evan.demo.contract.LoginContract;
-import com.evan.demo.model.bean.User;
 import com.evan.demo.model.engine.IUserEngine;
 import com.evan.demo.model.engine.impl.UserEngineImpl;
+import com.evan.demo.ui.ILoginView;
 import com.evan.demo.utils.SPUtils;
 
 /**
  * Created by evanyu on 16/5/30.
  */
-public class LoginPresenter implements LoginContract.Presenter {
+public class LoginPresenter extends BasePresenter<ILoginView> {
 
-    private LoginContract.View mView;
     private IUserEngine mUserEngine = new UserEngineImpl();
 
-    public LoginPresenter(LoginContract.View view) {
-        this.mView = view;
+    public LoginPresenter(ILoginView view) {
+        super(view);
     }
 
     @Override
-    public void onCreate() {
+    public void start() {
         loadRememberedAccAndPwd();
     }
 
-    @Override
+    /**
+     * 执行登陆操作
+     */
     public void login() {
         String name = mView.getUserName();
         String pwd = mView.getUserPwd();
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(pwd)) {
-            mView.showEmptyPrompt();
-            mView.hideLoginProgress();
+            mView.showEmptyError();
             return;
         }
 
-        mView.showLoginProgress();
+        showLoading();
         mUserEngine.login(name, pwd, new IUserEngine.OnLoginListener() {
             @Override
-            public void loginSuccess(User user) {
-                // 登陆成功
-                mView.hideLoginProgress();
-                rememberAccAndPwd(mView.isRememberAccAndPwd());
+            public void loginSuccess(String data) {
+                hideLoading();
+                // 从model获取到的是原始数据,必要时可在P层对数据进行处理并传递给View层
+//                String[] infoArr = data.split(",");
+//                String name = infoArr[0];
+//                String pwd = infoArr[1];
+//                User user = new User(name, pwd);
+                mView.onLoginSuccess();
             }
 
             @Override
             public void loginFailed() {
-                mView.hideLoginProgress();
-                mView.promptLoginFailed();
+                hideLoading();
+                mView.onLoginFailed();
             }
         });
     }
 
     /**
      * 记录或取消记录帐号和密码
+     *
      * @param isRemember 是否记录
      * @return true:操作成功, false:操作失败
      */
-    private void rememberAccAndPwd(boolean isRemember) {
+    public void rememberAccAndPwd(boolean isRemember) {
         if (isRemember) {
             // 记住密码
             String name = mView.getUserName();
@@ -86,8 +90,12 @@ public class LoginPresenter implements LoginContract.Presenter {
         }
     }
 
+    /**
+     * 当View被销毁时调用
+     */
     @Override
-    public void onDestroy() {
+    public void onViewDestroy() {
 
     }
+
 }

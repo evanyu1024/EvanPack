@@ -1,5 +1,7 @@
 package com.evan.demo.contract;
 
+import com.evan.demo.model.bean.User;
+
 /**
  * 登陆界面接口协议
  * Created by evanyu on 16/5/30.
@@ -29,14 +31,8 @@ public interface LoginContract extends BaseContract {
         /** 提示账号或密码为空 */
         void showEmptyPrompt();
 
-        /** 提示正在登陆 */
-        void showLoginProgress();
-
-        /** 隐藏正在登陆的提示 */
-        void hideLoginProgress();
-
-        /** 提示登陆失败 */
-        void promptLoginFailed();
+        /** 登陆操作结束 */
+        void onLoginFinished(User user);
 
     }
 

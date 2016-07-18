@@ -57,4 +57,5 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         // empty
     }
+
 }

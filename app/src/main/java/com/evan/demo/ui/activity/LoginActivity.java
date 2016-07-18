@@ -1,22 +1,20 @@
 package com.evan.demo.ui.activity;
 
 import android.app.ProgressDialog;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.evan.demo.R;
-import com.evan.demo.contract.LoginContract;
 import com.evan.demo.presenter.LoginPresenter;
+import com.evan.demo.ui.ILoginView;
 import com.evan.demo.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LoginActivity extends BaseActivity implements LoginContract.View
-{
+public class LoginActivity extends BaseActivity implements ILoginView {
 
     @BindView(R.id.et_account)
     EditText mEtAccount;
@@ -27,7 +25,7 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     @BindView(R.id.cbox_remember_pwd)
     CheckBox mCboxPwd;
 
-    private LoginContract.Presenter mPresenter;
+    private LoginPresenter mPresenter;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -36,12 +34,11 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
         ButterKnife.bind(this);
 
         mPresenter = new LoginPresenter(this);
-        mPresenter.onCreate(); // 初始化Presenter
-
-        initViews();
+        mPresenter.start();
+        initView();
     }
 
-    private void initViews() {
+    private void initView() {
         mBtnLogin.setOnClickListener(this);
     }
 
@@ -68,16 +65,12 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
 
     @Override
     public void setUserName(String name) {
-        if (!TextUtils.isEmpty(name)) {
-            mEtAccount.setText(name);
-        }
+        mEtAccount.setText(name);
     }
 
     @Override
     public void setUserPwd(String pwd) {
-        if (!TextUtils.isEmpty(pwd)) {
-            mEtLoginPwd.setText(pwd);
-        }
+        mEtLoginPwd.setText(pwd);
     }
 
     @Override
@@ -91,36 +84,43 @@ public class LoginActivity extends BaseActivity implements LoginContract.View
     }
 
     @Override
-    public void showLoginProgress() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("正在登陆...");
-        }
-        mProgressDialog.show();
-    }
-
-    @Override
-    public void hideLoginProgress() {
-        if (mProgressDialog != null) {
-            mProgressDialog.dismiss();
-        }
-    }
-
-    @Override
-    public void promptLoginFailed() {
-        // Snackbar.make(mBtnLogin, "账号或密码错误", Snackbar.LENGTH_SHORT).show();
-        ToastUtils.showToastShort("帐号或密码错误");
-    }
-
-    @Override
-    public void showEmptyPrompt() {
-        // Snackbar.make(mBtnLogin, "账号或密码不能为空", Snackbar.LENGTH_SHORT).show();
+    public void showEmptyError() {
         ToastUtils.showToastShort("账号或密码不能为空");
+    }
+
+    @Override
+    public void onLoginSuccess() {
+        ToastUtils.showToastShort("登陆成功");
+        // 登陆成功后,根据情况记录密码
+        mPresenter.rememberAccAndPwd(mCboxPwd.isChecked());
+    }
+
+    @Override
+    public void onLoginFailed() {
+        ToastUtils.showToastShort("登录失败:帐号或密码错误");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.onDestroy();
+        mPresenter.onViewDestroy();
+    }
+
+    @Override
+    public void showLoading() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage("正在登陆...");
+        }
+        if (!mProgressDialog.isShowing()) {
+            mProgressDialog.show();
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
     }
 }

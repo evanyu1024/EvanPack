@@ -1,5 +1,7 @@
 package com.evan.demo.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,5 +35,9 @@ public class MainActivity extends BaseActivity {
                 break;
         }
         return true;
+    }
+
+    public static void startActivity(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
     }
 }
