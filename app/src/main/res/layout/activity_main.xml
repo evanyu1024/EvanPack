@@ -1,20 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3389D9"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".ui.activity.MainActivity">
 
-    <com.evan.demo.ui.view.SwitchTab
-        android:id="@+id/switch_tab"
-        android:layout_width="wrap_content"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- TabLayout实现底部导航 -->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/home_tablayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:textLeft="债券包"
-        app:textRight="单笔" />
-</RelativeLayout>
+        android:visibility="visible"
+        app:tabIndicatorHeight="0dp" />
+
+    <!-- RadioGroup实现底部导航 -->
+    <com.evan.demo.ui.view.TabGroup
+        android:id="@+id/home_tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbtn_home"
+            style="@style/home_tab_style"
+            android:drawableTop="@drawable/slt_menu_home"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rbtn_product"
+            style="@style/home_tab_style"
+            android:drawableTop="@drawable/slt_menu_product"
+            android:text="产品" />
+
+        <RadioButton
+            android:id="@+id/rbtn_find"
+            style="@style/home_tab_style"
+            android:drawableTop="@drawable/slt_menu_find"
+            android:text="发现" />
+
+        <RadioButton
+            android:id="@+id/rbtn_mine"
+            style="@style/home_tab_style"
+            android:drawableTop="@drawable/slt_menu_mine"
+            android:text="我的" />
+
+    </com.evan.demo.ui.view.TabGroup>
+
+</LinearLayout>

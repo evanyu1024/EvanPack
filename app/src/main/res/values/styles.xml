@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="home_tab_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:textColor">@color/slt_home_tab_textcolor</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@null</item>
+        <!-- 去除点击时的音效 -->
+        <!--<item name="android:soundEffectsEnabled">false</item>-->
+    </style>
+
 </resources>

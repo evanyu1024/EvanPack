@@ -6,10 +6,16 @@ package com.evan.demo.ui;
  */
 public interface IBaseView {
 
+    /** 显示toast */
+    void showToast(String msg);
+
     /** 显示进度提示 */
     void showLoading();
 
-    /** 银行进度提示 */
+    /** 隐藏进度提示 */
     void hideLoading();
+
+    /** 销毁当前View */
+    void finishView();
 
 }

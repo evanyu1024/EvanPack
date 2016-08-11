@@ -1,6 +1,6 @@
 package com.evan.demo.contract;
 
-import com.evan.demo.model.bean.User;
+import com.evan.demo.model.domain.bean.User;
 
 /**
  * 登陆界面接口协议

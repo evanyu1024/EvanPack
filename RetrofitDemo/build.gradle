@@ -40,7 +40,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["retrofit"]
+    compile rootProject.ext.dependencies["retrofit2-gson"]
     compile rootProject.ext.dependencies["butterknife"]
     compile rootProject.ext.dependencies["logger"]
 }

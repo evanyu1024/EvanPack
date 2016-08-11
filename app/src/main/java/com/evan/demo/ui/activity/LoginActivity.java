@@ -9,7 +9,7 @@ import android.widget.EditText;
 import com.evan.demo.R;
 import com.evan.demo.presenter.LoginPresenter;
 import com.evan.demo.ui.ILoginView;
-import com.evan.demo.utils.ToastUtils;
+import com.evan.demo.manager.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -85,19 +85,19 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Override
     public void showEmptyError() {
-        ToastUtils.showToastShort("账号或密码不能为空");
+        ToastUtils.showToast("账号或密码不能为空");
     }
 
     @Override
     public void onLoginSuccess() {
-        ToastUtils.showToastShort("登陆成功");
+        ToastUtils.showToast("登陆成功");
         // 登陆成功后,根据情况记录密码
         mPresenter.rememberAccAndPwd(mCboxPwd.isChecked());
     }
 
     @Override
     public void onLoginFailed() {
-        ToastUtils.showToastShort("登录失败:帐号或密码错误");
+        ToastUtils.showToast("登录失败:帐号或密码错误");
     }
 
     @Override

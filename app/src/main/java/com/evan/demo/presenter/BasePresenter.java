@@ -40,7 +40,7 @@ public abstract class BasePresenter<T extends IBaseView> implements IPresenter<T
 
     @Override
     public void showToast(String msg) {
-
+        mView.showToast(msg);
     }
 
     @Override

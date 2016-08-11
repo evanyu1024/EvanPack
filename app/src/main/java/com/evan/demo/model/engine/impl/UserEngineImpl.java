@@ -3,12 +3,13 @@ package com.evan.demo.model.engine.impl;
 import android.os.Handler;
 import android.os.SystemClock;
 
+import com.evan.demo.model.engine.IBaseEngine;
 import com.evan.demo.model.engine.IUserEngine;
 
 /**
  * Created by evanyu on 16/5/30.
  */
-public class UserEngineImpl implements IUserEngine {
+public class UserEngineImpl implements IUserEngine, IBaseEngine {
 
     private Handler mHandler = new Handler();
 
@@ -41,5 +42,9 @@ public class UserEngineImpl implements IUserEngine {
                 }
             }
         }.start();
+    }
+
+    @Override
+    public void unsubscribeAll() {
     }
 }

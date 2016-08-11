@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.evan.demo.model.engine.IUserEngine;
 import com.evan.demo.model.engine.impl.UserEngineImpl;
 import com.evan.demo.ui.ILoginView;
-import com.evan.demo.utils.SPUtils;
+import com.evan.demo.manager.utils.SPUtils;
 
 /**
  * Created by evanyu on 16/5/30.
@@ -35,6 +35,7 @@ public class LoginPresenter extends BasePresenter<ILoginView> {
         }
 
         showLoading();
+
         mUserEngine.login(name, pwd, new IUserEngine.OnLoginListener() {
             @Override
             public void loginSuccess(String data) {

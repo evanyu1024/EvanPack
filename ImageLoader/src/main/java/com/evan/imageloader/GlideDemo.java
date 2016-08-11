@@ -52,7 +52,7 @@ public class GlideDemo extends AppCompatActivity {
                 //.asGif() // 判断url是否是一个gif图,如果不是的话就加载失败(即使这个url访问的是一个完整的图片)
                 .asBitmap() // 如果是已将gif图则只会加载gif的第一祯
                 .placeholder(R.mipmap.ic_launcher) // 占位图(加载时显示)
-                .error(R.drawable.error) // 展位图(加载失败时显示)
+                .error(R.drawable.error) // 占位图(加载失败时显示)
                 //.crossFade(2000) // 淡入淡出效果(默认300ms)
                 .dontAnimate() // 去除淡入淡出效果
                 .override(200, 300) // 在图片显示之间重新设置图片的尺寸
@@ -62,9 +62,9 @@ public class GlideDemo extends AppCompatActivity {
                 //.diskCacheStrategy(DiskCacheStrategy.SOURCE) // 调整磁盘缓存策略(参数是一个枚举值)
                 //.priority(Priority.HIGH) // 优先级(规则类似于线程的优先级,并不会完全遵守)
                 //.thumbnail(0.1f) // 缩略图
-                //.into(mImageView);
+                .into(mImageView);
                 //.into(ViewTarget) // 用于将图片显示在自定义View中
-                .into(target); // 设置加载完后的回调对象,可在内部的回调方法中处理加载到的图像(如果是Bitmap类型通常需要asBitmap()进行检测)
+                //.into(target); // 设置加载完后的回调对象,可在内部的回调方法中处理加载到的图像(如果是Bitmap类型通常需要asBitmap()进行检测)
 
 
         /*
