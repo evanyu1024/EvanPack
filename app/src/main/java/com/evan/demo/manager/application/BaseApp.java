@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
 
-import com.evan.demo.manager.utils.CrashHandler;
+import com.evan.demo.utils.CrashHandler;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -13,15 +13,15 @@ import com.umeng.analytics.MobclickAgent;
  */
 public class BaseApp extends Application {
 
-    private static Context mContext;
-    public static Thread mMainThread = Thread.currentThread();
+    private static Context sContext;
+    public static Thread sMainThread = Thread.currentThread();
 
-    public static Handler mMainThreadHandler = new Handler();
+    public static Handler sMainThreadHandler = new Handler();
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
+        sContext = this;
 
         initUMeng();
         initCrashHandler();
@@ -48,14 +48,14 @@ public class BaseApp extends Application {
     }
 
     public static Context getContext() {
-        return mContext;
+        return sContext;
     }
 
     public static Thread getMainThread() {
-        return mMainThread;
+        return sMainThread;
     }
 
     public static Handler getMainThreadHandler() {
-        return mMainThreadHandler;
+        return sMainThreadHandler;
     }
 }

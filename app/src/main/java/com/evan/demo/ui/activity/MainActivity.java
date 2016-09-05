@@ -15,7 +15,7 @@ import com.evan.demo.ui.fragment.Fragment01;
 import com.evan.demo.ui.fragment.Fragment02;
 import com.evan.demo.ui.fragment.Fragment03;
 import com.evan.demo.ui.fragment.Fragment04;
-import com.evan.demo.ui.view.TabGroup;
+import com.evan.demo.ui.widget.TabGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +87,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public Fragment getItem(int position) {
-            Log.d("aaa", "getItem: "+position);
+            Log.d("aaa", "getItem: " + position);
             return fragList.get(position);
         }
 

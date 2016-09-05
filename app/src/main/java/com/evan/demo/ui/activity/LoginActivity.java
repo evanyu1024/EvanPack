@@ -1,15 +1,22 @@
 package com.evan.demo.ui.activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import com.evan.demo.BuildConfig;
 import com.evan.demo.R;
+import com.evan.demo.constant.FlavorConfig;
+import com.evan.demo.utils.LogUtils;
+import com.evan.demo.utils.ToastUtils;
+import com.evan.demo.model.bean.eventbus.EventBean;
 import com.evan.demo.presenter.LoginPresenter;
-import com.evan.demo.ui.ILoginView;
-import com.evan.demo.manager.utils.ToastUtils;
+import com.evan.demo.ui.iview.ILoginView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,9 +40,14 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
+        EventBus.getDefault().postSticky(new EventBean());
+        // EventBus.getDefault().post(new EventBean());
+
         mPresenter = new LoginPresenter(this);
         mPresenter.start();
         initView();
+
+        LogUtils.d("flavorValue...." + FlavorConfig.VALUE + ", " + BuildConfig.APPLICATION_ID);
     }
 
     private void initView() {
@@ -93,17 +105,12 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         ToastUtils.showToast("登陆成功");
         // 登陆成功后,根据情况记录密码
         mPresenter.rememberAccAndPwd(mCboxPwd.isChecked());
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onLoginFailed() {
         ToastUtils.showToast("登录失败:帐号或密码错误");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPresenter.onViewDestroy();
     }
 
     @Override

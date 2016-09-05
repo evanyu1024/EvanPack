@@ -1,6 +1,6 @@
 package com.evan.demo.presenter;
 
-import com.evan.demo.ui.IBaseView;
+import com.evan.demo.ui.iview.IBaseView;
 
 /**
  * Created by evanyu on 16/7/14.

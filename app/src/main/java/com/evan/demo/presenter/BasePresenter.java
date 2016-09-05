@@ -1,6 +1,6 @@
 package com.evan.demo.presenter;
 
-import com.evan.demo.ui.IBaseView;
+import com.evan.demo.ui.iview.IBaseView;
 
 /**
  * Created by evanyu on 16/7/14.
@@ -40,7 +40,7 @@ public abstract class BasePresenter<T extends IBaseView> implements IPresenter<T
 
     @Override
     public void showToast(String msg) {
-        mView.showToast(msg);
+        mView.showMessage(msg);
     }
 
     @Override

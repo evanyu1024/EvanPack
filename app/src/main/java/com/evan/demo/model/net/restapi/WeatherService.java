@@ -1,7 +1,7 @@
 package com.evan.demo.model.net.restapi;
 
-import com.evan.demo.model.domain.bean.WeatherData;
-import com.evan.demo.model.domain.bean.WeatherListData;
+import com.evan.demo.model.bean.WeatherData;
+import com.evan.demo.model.bean.WeatherListData;
 
 import java.util.Map;
 

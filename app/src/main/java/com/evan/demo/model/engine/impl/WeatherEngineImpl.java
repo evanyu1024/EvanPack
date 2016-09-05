@@ -1,9 +1,9 @@
 package com.evan.demo.model.engine.impl;
 
-import com.evan.demo.manager.utils.LogUtils;
-import com.evan.demo.model.domain.bean.WeatherData;
-import com.evan.demo.model.domain.bean.WeatherListData;
-import com.evan.demo.model.domain.constant.NetConstant;
+import com.evan.demo.utils.LogUtils;
+import com.evan.demo.model.bean.WeatherData;
+import com.evan.demo.model.bean.WeatherListData;
+import com.evan.demo.model.constant.NetConstant;
 import com.evan.demo.model.engine.IWeatherEngine;
 import com.evan.demo.model.net.OkHttpFractory;
 import com.evan.demo.model.net.restapi.WeatherService;

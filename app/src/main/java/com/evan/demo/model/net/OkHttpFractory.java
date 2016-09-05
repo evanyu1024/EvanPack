@@ -12,18 +12,18 @@ import okhttp3.OkHttpClient;
  */
 public class OkHttpFractory {
 
-    private static OkHttpClient mOkHttpClinet;
+    private static OkHttpClient sOkHttpClinet;
 
     private OkHttpFractory() {
     }
 
     public static OkHttpClient getOkHttpClient() {
         synchronized (OkHttpFractory.class) {
-            if (mOkHttpClinet == null) {
+            if (sOkHttpClinet == null) {
                 synchronized (OkHttpFractory.class) {
                     int cacheSize = 10 * 1024 * 1024; // 10 MiB
                     Cache cache = new Cache(BaseApp.getContext().getCacheDir(), cacheSize);
-                    mOkHttpClinet = new OkHttpClient.Builder()
+                    sOkHttpClinet = new OkHttpClient.Builder()
                             .connectTimeout(10, TimeUnit.SECONDS) // 设置超时时间
                             .readTimeout(10, TimeUnit.SECONDS) // 设置读取超时时间
                             .writeTimeout(10, TimeUnit.SECONDS) // 设置写入超时时间
@@ -32,7 +32,7 @@ public class OkHttpFractory {
                 }
             }
         }
-        return mOkHttpClinet;
+        return sOkHttpClinet;
     }
 
 }

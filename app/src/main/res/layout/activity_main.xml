@@ -22,7 +22,7 @@
         app:tabIndicatorHeight="0dp" />
 
     <!-- RadioGroup实现底部导航 -->
-    <com.evan.demo.ui.view.TabGroup
+    <com.evan.demo.ui.widget.TabGroup
         android:id="@+id/home_tab_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,6 +52,6 @@
             android:drawableTop="@drawable/slt_menu_mine"
             android:text="我的" />
 
-    </com.evan.demo.ui.view.TabGroup>
+    </com.evan.demo.ui.widget.TabGroup>
 
 </LinearLayout>

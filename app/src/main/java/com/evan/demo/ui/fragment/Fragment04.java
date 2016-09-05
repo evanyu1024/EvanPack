@@ -1,9 +1,6 @@
 package com.evan.demo.ui.fragment;
 
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.evan.demo.R;
 
@@ -13,7 +10,12 @@ import com.evan.demo.R;
 public class Fragment04 extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {
-        return inflater.inflate(R.layout.fragment04, container, false);
+    public int getLayoutResId() {
+        return R.layout.fragment04;
+    }
+
+    @Override
+    public void onViewCreated(View view) {
+
     }
 }

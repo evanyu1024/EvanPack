@@ -4,8 +4,8 @@ import android.text.TextUtils;
 
 import com.evan.demo.model.engine.IUserEngine;
 import com.evan.demo.model.engine.impl.UserEngineImpl;
-import com.evan.demo.ui.ILoginView;
-import com.evan.demo.manager.utils.SPUtils;
+import com.evan.demo.ui.iview.ILoginView;
+import com.evan.demo.utils.SPUtils;
 
 /**
  * Created by evanyu on 16/5/30.

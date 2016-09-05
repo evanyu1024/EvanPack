@@ -24,9 +24,23 @@ android {
             abiFilters 'armeabi'// 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
         }*/
     }
+
+    // 签名配置
+    signingConfigs {
+        release {
+            storeFile file("keystore_evan.jks")
+            keyAlias "evanpack"
+            storePassword "abc123"
+            keyPassword "abc123"
+//            storePassword System.console().readLine("\nKeystore password: ")
+//            keyPassword System.console().readLine("\nKey password: ")
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -44,10 +58,16 @@ android {
         }
     }*/
 
-    productFlavors {
+    // 可以使用360加固替代
+    /*productFlavors {
         store360 {}
         xiaomi {}
         meizu {}
+    }*/
+
+    productFlavors {
+        evan {}
+        una {}
     }
 
     productFlavors.all {
@@ -64,6 +84,7 @@ buildscript {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
+
 /*
 bugtags {
     //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
@@ -115,6 +136,7 @@ dependencies {
     compile 'com.android.support:multidex:1.0.0'
     compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["glide"]
+    compile rootProject.ext.dependencies["eventbus"]
 
     // compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }

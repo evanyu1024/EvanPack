@@ -1,5 +1,6 @@
 package com.evan.demo.ui.activity;
 
+import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
@@ -10,9 +11,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.evan.demo.R;
-import com.evan.demo.manager.utils.ActivityCollector;
-import com.evan.demo.manager.utils.ToastUtils;
-import com.evan.demo.ui.IBaseView;
+import com.evan.demo.utils.ActivityCollector;
+import com.evan.demo.utils.ToastUtils;
+import com.evan.demo.ui.iview.IBaseView;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -34,9 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 初始化方法
      */
-    protected void onCreate() {
-        // empty
-    }
+    protected abstract void onCreate();
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -64,20 +63,19 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         ActivityCollector.setForefroundActivity(null);
     }
 
-    // 空实现
     @Override
     public void onClick(View v) {
         // empty
     }
 
     @Override
-    public void showToast(String msg) {
-        ToastUtils.showToast(msg);
+    public Context getContext() {
+        return mActivity;
     }
 
     @Override
-    public void finishView() {
-        finish();
+    public void showMessage(String msg) {
+        ToastUtils.showToast(msg);
     }
 
     @Override
@@ -102,8 +100,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
+    public void finishView() {
+        finish();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
     }
+
 }

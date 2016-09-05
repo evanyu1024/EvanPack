@@ -4,7 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.evan.demo.manager.utils.LogUtils;
+import com.evan.demo.utils.LogUtils;
 
 import java.util.List;
 
