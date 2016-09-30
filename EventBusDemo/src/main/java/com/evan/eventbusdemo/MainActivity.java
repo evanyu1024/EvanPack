@@ -12,6 +12,8 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    Test t = new Test();
+
     @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_post_sticky).setOnClickListener(this);
 
         EventBus.getDefault().register(this);
+
     }
 
     @Override

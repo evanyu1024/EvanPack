@@ -24,7 +24,7 @@ public abstract class BasePresenter<T extends IBaseView> implements IPresenter<T
     }
 
     @Override
-    public void detatchView() {
+    public void detachView() {
         mView = null;
     }
 
@@ -54,7 +54,7 @@ public abstract class BasePresenter<T extends IBaseView> implements IPresenter<T
     }
 
     public void onViewDestroy() {
-        detatchView();
+        detachView();
     }
 
 }

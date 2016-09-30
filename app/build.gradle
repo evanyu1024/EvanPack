@@ -123,6 +123,7 @@ dependencies {
 
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["constraint-layout"]
 
     // butterknife
     apt rootProject.ext.dependencies["butterknife-compiler"]

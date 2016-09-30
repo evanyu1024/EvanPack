@@ -50,13 +50,13 @@ public class GlideDemo extends AppCompatActivity {
                 //.load(resIdToUri(this, R.drawable.bd_logo)) // uri对象(uri不必从资源中获取,可以是任何uri)
                 //.load(Uri.fromFile(new File(path))) // 加载视频(只能是本地视频)
                 //.asGif() // 判断url是否是一个gif图,如果不是的话就加载失败(即使这个url访问的是一个完整的图片)
-                .asBitmap() // 如果是已将gif图则只会加载gif的第一祯
+                .asBitmap() // 如果是gif图则只会加载gif的第一祯
                 .placeholder(R.mipmap.ic_launcher) // 占位图(加载时显示)
                 .error(R.drawable.error) // 占位图(加载失败时显示)
                 //.crossFade(2000) // 淡入淡出效果(默认300ms)
                 .dontAnimate() // 去除淡入淡出效果
                 .override(200, 300) // 在图片显示之间重新设置图片的尺寸
-                //.centerCrop() // 将图片显示在控件冲,并裁剪超出部分
+                //.centerCrop() // 将图片显示在控件中,并裁剪超出部分
                 .fitCenter() // 将图片完全显示在空间中,保证图片的边界一定小于等于控件的边界
                 //.skipMemoryCache(true) // 设置是否跳过内存缓存(默认false)
                 //.diskCacheStrategy(DiskCacheStrategy.SOURCE) // 调整磁盘缓存策略(参数是一个枚举值)

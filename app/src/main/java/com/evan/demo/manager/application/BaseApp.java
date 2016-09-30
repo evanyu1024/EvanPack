@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.evan.demo.utils.CrashHandler;
 import com.umeng.analytics.MobclickAgent;
@@ -22,6 +23,8 @@ public class BaseApp extends Application {
     public void onCreate() {
         super.onCreate();
         sContext = this;
+
+        Log.d("mtag", "BaseApp#onCreate");
 
         initUMeng();
         initCrashHandler();

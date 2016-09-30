@@ -11,7 +11,7 @@ public interface IPresenter<T extends IBaseView> {
 
     void attachView(T view);
 
-    void detatchView();
+    void detachView();
 
     T getView();
 

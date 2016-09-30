@@ -2,11 +2,13 @@ package com.evan.test;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements TextWatcher {
 
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
         mEtTest = (EditText) findViewById(R.id.et_test);
 
         mEtTest.addTextChangedListener(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.toolbar_back);
     }
 
     public void onClick(View view) {
@@ -102,5 +108,10 @@ public class MainActivity extends AppCompatActivity implements TextWatcher {
             result = a + " " + b;
         }
         return result;
+    }
+
+    public void onClick2(View view) {
+        TextView tv = (TextView) findViewById(R.id.tv_test);
+        tv.setText(null);
     }
 }

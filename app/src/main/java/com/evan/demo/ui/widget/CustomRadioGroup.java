@@ -1,14 +1,14 @@
 package com.evan.demo.ui.widget;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+
+import com.evan.demo.utils.ViewIdGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class CustomRadioGroup extends LinearLayout {
     /**
      * 递归查找具有选中属性的子控件
      */
-    private List<CompoundButton> findCheckedView(View child) {
+    private static List<CompoundButton> findCheckedView(View child) {
         List<CompoundButton> allCompoundButtonList = null;
         if (child instanceof CompoundButton) {
             allCompoundButtonList = new ArrayList<CompoundButton>();
@@ -344,7 +344,7 @@ public class CustomRadioGroup extends LinearLayout {
         /**
          * {@inheritDoc}
          */
-        @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+        // @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         public void onChildViewAdded(View parent, View child) {
             if (parent == CustomRadioGroup.this) {
                 // CompoundButton view = findCheckedView(child); // 查找子控件
@@ -353,8 +353,9 @@ public class CustomRadioGroup extends LinearLayout {
                     if (view != null) {
                         int id = view.getId();
                         // generates an id if it's missing
-                        if (id == View.NO_ID && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                            id = View.generateViewId();
+                        if (id == View.NO_ID /*&& Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1*/) {
+                            // id = View.generateViewId();
+                            id = ViewIdGenerator.generateViewId();
                             view.setId(id);
                         }
                         view.setOnCheckedChangeListener(mChildOnCheckedChangeListener);

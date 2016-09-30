@@ -12,6 +12,8 @@ import com.evan.demo.ui.iview.IBaseView;
 import com.evan.demo.utils.ToastUtils;
 import com.umeng.analytics.MobclickAgent;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by evanyu on 16/6/12.
  */
@@ -23,7 +25,9 @@ public abstract class BaseFragment extends Fragment implements IBaseView {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mSavedInstanceState = savedInstanceState;
-        return inflater.inflate(getLayoutResId(), container, false);
+        View view = inflater.inflate(getLayoutResId(), container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
 //    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container) {

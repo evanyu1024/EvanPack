@@ -7,6 +7,7 @@ import com.evan.demo.ui.activity.BaseActivity;
 import rx.Subscriber;
 
 /**
+ *
  * Created by evanyu on 16/8/1.
  */
 public abstract class ProgressSubscriber<T> extends Subscriber<T> {

@@ -22,23 +22,7 @@
             <option value="$PROJECT_DIR$/test" />
           </set>
         </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/DataBindingDemo" />
-            <option value="$PROJECT_DIR$/EventBusDemo" />
-            <option value="$PROJECT_DIR$/ImageLoader" />
-            <option value="$PROJECT_DIR$/OkHttpDemo" />
-            <option value="$PROJECT_DIR$/PullToRefreshDemo" />
-            <option value="$PROJECT_DIR$/RetrofitDemo" />
-            <option value="$PROJECT_DIR$/RxJavaDemo" />
-            <option value="$PROJECT_DIR$/UmengDemo" />
-            <option value="$PROJECT_DIR$/WebViewDemo" />
-            <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/lib_ptr" />
-            <option value="$PROJECT_DIR$/test" />
-          </set>
-        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

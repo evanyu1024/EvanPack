@@ -12,6 +12,7 @@ import retrofit2.http.POST;
 import rx.Observable;
 
 /**
+ *
  * Created by evanyu on 16/6/14.
  */
 public interface WeatherService {
