@@ -1,4 +1,4 @@
-package com.evan.demo.ui.adapter;
+package com.evan.demo.ui.adapter.base;
 
 import android.content.Context;
 import android.graphics.Bitmap;

@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.evan.demo.R;
+import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.ui.fragment.Fragment01;
 import com.evan.demo.ui.fragment.Fragment02;
 import com.evan.demo.ui.fragment.Fragment03;

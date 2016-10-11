@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.evan.demo.BuildConfig;
 import com.evan.demo.R;
 import com.evan.demo.constant.FlavorConfig;
+import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.utils.LogUtils;
 import com.evan.demo.utils.ToastUtils;
 import com.evan.demo.model.bean.eventbus.EventBean;

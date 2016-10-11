@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.evan.demo.R;
+import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.utils.LogUtils;
 import com.evan.demo.utils.StorageUtils;
 

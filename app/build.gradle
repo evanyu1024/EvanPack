@@ -138,6 +138,7 @@ dependencies {
     compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["eventbus"]
+    compile rootProject.ext.dependencies["ultra-ptr"]
 
     // compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }

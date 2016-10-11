@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.evan.demo.R;
-import com.evan.demo.ui.adapter.BaseViewPagerAdapter;
+import com.evan.demo.ui.adapter.base.BaseViewPagerAdapter;
 
 import java.util.List;
 

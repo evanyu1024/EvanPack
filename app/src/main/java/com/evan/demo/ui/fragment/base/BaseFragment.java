@@ -1,4 +1,4 @@
-package com.evan.demo.ui.fragment;
+package com.evan.demo.ui.fragment.base;
 
 import android.content.Context;
 import android.os.Bundle;

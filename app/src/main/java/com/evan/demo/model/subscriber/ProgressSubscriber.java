@@ -2,7 +2,7 @@ package com.evan.demo.model.subscriber;
 
 import com.evan.demo.utils.ActivityCollector;
 import com.evan.demo.utils.LogUtils;
-import com.evan.demo.ui.activity.BaseActivity;
+import com.evan.demo.ui.activity.base.BaseActivity;
 
 import rx.Subscriber;
 

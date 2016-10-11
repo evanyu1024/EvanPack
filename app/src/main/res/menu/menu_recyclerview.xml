@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_linear_port"
+        android:orderInCategory="1"
+        android:title="线性纵向" />
+
+    <item
+        android:id="@+id/menu_linear_land"
+        android:orderInCategory="1"
+        android:title="线性横向" />
+
+    <item
+        android:id="@+id/menu_grid_port"
+        android:orderInCategory="1"
+        android:title="网络纵向" />
+
+    <item
+        android:id="@+id/menu_grid_land"
+        android:orderInCategory="1"
+        android:title="网格横向" />
+
+</menu>

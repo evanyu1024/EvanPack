@@ -1,4 +1,4 @@
-package com.evan.demo.ui.activity;
+package com.evan.demo.ui.activity.base;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;

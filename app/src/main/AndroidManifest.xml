@@ -36,7 +36,11 @@
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.ToastTestActivity" />
         <activity android:name=".ui.activity.StorageUtilsTestActivity" />
-        <activity android:name=".ui.activity.RadioGroupTestActivity"></activity>
+        <activity android:name=".ui.activity.RadioGroupTestActivity" />
+        <activity android:name=".ui.activity.ConstraintLayoutDemo" />
+        <activity android:name=".ui.activity.CustomKeyboardDemo" />
+        <activity android:name=".ui.activity.MDUIActivity" />
+        <activity android:name=".ui.activity.RecyclerViewDemo" />
     </application>
 
 </manifest>

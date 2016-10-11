@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.evan.demo.R;
+import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.ui.widget.MyToast;
 
 /**

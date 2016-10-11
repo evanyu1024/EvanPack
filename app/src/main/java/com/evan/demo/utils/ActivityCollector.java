@@ -2,7 +2,7 @@ package com.evan.demo.utils;
 
 import android.app.Activity;
 
-import com.evan.demo.ui.activity.BaseActivity;
+import com.evan.demo.ui.activity.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
