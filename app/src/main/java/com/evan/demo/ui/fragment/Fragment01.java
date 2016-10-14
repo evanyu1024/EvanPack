@@ -13,6 +13,8 @@ import com.evan.demo.ui.activity.MDUIActivity;
 import com.evan.demo.ui.activity.RadioGroupTestActivity;
 import com.evan.demo.ui.activity.StorageUtilsTestActivity;
 import com.evan.demo.ui.activity.ToastTestActivity;
+import com.evan.demo.ui.activity.VideoViewDemo;
+import com.evan.demo.ui.activity.VitamioDemo;
 import com.evan.demo.ui.fragment.base.BaseFragment;
 import com.evan.demo.utils.IntentUtils;
 
@@ -37,7 +39,9 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
             new ActivityInfo(ConstraintLayoutDemo.class, "ConstraintLayout"),
             new ActivityInfo(CustomKeyboardDemo.class, "CustomKeyboardDemo"),
-            new ActivityInfo(MDUIActivity.class, "Metrial Design")
+            new ActivityInfo(MDUIActivity.class, "Metrial Design"),
+            new ActivityInfo(VitamioDemo.class, "VitamioDemo"),
+            new ActivityInfo(VideoViewDemo.class, "VideoViewDemo")
     );
 
     @Override

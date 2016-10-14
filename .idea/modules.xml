@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/EvanPack.iml" filepath="$PROJECT_DIR$/EvanPack.iml" />
       <module fileurl="file://$PROJECT_DIR$/EventBusDemo/EventBusDemo.iml" filepath="$PROJECT_DIR$/EventBusDemo/EventBusDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ImageLoader/ImageLoader.iml" filepath="$PROJECT_DIR$/ImageLoader/ImageLoader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InitActivity/InitActivity.iml" filepath="$PROJECT_DIR$/InitActivity/InitActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" filepath="$PROJECT_DIR$/OkHttpDemo/OkHttpDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" filepath="$PROJECT_DIR$/PullToRefreshDemo/PullToRefreshDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" filepath="$PROJECT_DIR$/RetrofitDemo/RetrofitDemo.iml" />

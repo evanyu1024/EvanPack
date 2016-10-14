@@ -114,17 +114,15 @@ dependencies {
     // compile dependencies.design
     // apt dependencies.butterknife-compiler
     // compile dependencies.butterknife
-
     // 引用arr文件
     // compile (name: 'PullToRefresh-release', ext: 'aar')
-
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
+    compile project(':InitActivity')
 
+    testCompile 'junit:junit:4.12'
     compile rootProject.ext.dependencies["appcompat-v7"]
     compile rootProject.ext.dependencies["design"]
     // compile rootProject.ext.dependencies["constraint-layout"]
-
     // butterknife
     apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
@@ -133,13 +131,11 @@ dependencies {
     compile rootProject.ext.dependencies["retrofit2-rxjava"]
     compile rootProject.ext.dependencies["rxjava"]
     compile rootProject.ext.dependencies["rxandroid"]
-
     compile 'com.android.support:multidex:1.0.0'
     compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["eventbus"]
     compile rootProject.ext.dependencies["ultra-ptr"]
-
     // compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }
 

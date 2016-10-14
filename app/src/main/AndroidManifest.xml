@@ -41,6 +41,8 @@
         <activity android:name=".ui.activity.CustomKeyboardDemo" />
         <activity android:name=".ui.activity.MDUIActivity" />
         <activity android:name=".ui.activity.RecyclerViewDemo" />
+        <activity android:name=".ui.activity.VitamioDemo" />
+        <activity android:name=".ui.activity.VideoViewDemo" />
     </application>
 
 </manifest>
