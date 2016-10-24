@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.evan.demo.ui.activity.RadioGroupTestActivity">
 
-    <com.evan.demo.ui.widget.CustomRadioGroup
+    <com.evan.demo.ui.widget.SuperRadioGroup
         android:id="@+id/radiogroup"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -112,10 +112,10 @@
             </LinearLayout>
         </FrameLayout>
 
-    </com.evan.demo.ui.widget.CustomRadioGroup>
+    </com.evan.demo.ui.widget.SuperRadioGroup>
 
 
-    <com.evan.demo.ui.widget.CustomRadioGroup
+    <com.evan.demo.ui.widget.SuperRadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -152,6 +152,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-    </com.evan.demo.ui.widget.CustomRadioGroup>
+    </com.evan.demo.ui.widget.SuperRadioGroup>
 
 </LinearLayout>

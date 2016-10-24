@@ -9,9 +9,12 @@ import com.evan.demo.R;
 import com.evan.demo.model.bean.ActivityInfo;
 import com.evan.demo.ui.activity.ConstraintLayoutDemo;
 import com.evan.demo.ui.activity.CustomKeyboardDemo;
+import com.evan.demo.ui.activity.LoginActivity;
 import com.evan.demo.ui.activity.MDUIActivity;
 import com.evan.demo.ui.activity.RadioGroupTestActivity;
 import com.evan.demo.ui.activity.StorageUtilsTestActivity;
+import com.evan.demo.ui.activity.SuperRadioGroupDemo;
+import com.evan.demo.ui.activity.TabGroupDemo;
 import com.evan.demo.ui.activity.ToastTestActivity;
 import com.evan.demo.ui.activity.VideoViewDemo;
 import com.evan.demo.ui.activity.VitamioDemo;
@@ -35,6 +38,9 @@ public class Fragment01 extends BaseFragment {
     ListView mListView;
 
     private List<ActivityInfo> mActivityList = Arrays.asList(
+            new ActivityInfo(LoginActivity.class, "MVP Demo"),
+            new ActivityInfo(SuperRadioGroupDemo.class, "SuperRadioGroupDemo"),
+            new ActivityInfo(TabGroupDemo.class, "TabGroupDemo"),
             new ActivityInfo(ToastTestActivity.class, "ToastUtils"),
             new ActivityInfo(StorageUtilsTestActivity.class, "StorageUtils"),
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),

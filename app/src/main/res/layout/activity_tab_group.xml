@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.evan.demo.ui.widget.TabGroup
+        android:id="@+id/tabgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rbtn01"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:button="@null"
+                android:checked="true"
+                android:drawableTop="@drawable/slt_menu_home"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="首页"
+                android:textColor="@drawable/slt_home_tab_textcolor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@id/rbtn01"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_circle_red"
+                android:gravity="center"
+                android:text="99"
+                android:textColor="#FFF"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rbtn02"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:button="@null"
+                android:drawableTop="@drawable/slt_menu_product"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="产品"
+                android:textColor="@drawable/slt_home_tab_textcolor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@id/rbtn02"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_circle_green"
+                android:gravity="center"
+                android:text="99"
+                android:textColor="#FFF"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:id="@+id/rbtn03"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:button="@null"
+                android:drawableTop="@drawable/slt_menu_find"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="发现"
+                android:textColor="@drawable/slt_home_tab_textcolor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignLeft="@id/rbtn03"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/shape_circle_blue"
+                android:gravity="center"
+                android:text="99"
+                android:textColor="#FFF"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+
+    </com.evan.demo.ui.widget.TabGroup>
+
+</LinearLayout>

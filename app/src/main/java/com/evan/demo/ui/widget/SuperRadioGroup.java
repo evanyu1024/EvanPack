@@ -17,7 +17,7 @@ import java.util.List;
  * 自定义RadioGroup,默认横向排列,支持CompoundButton和布局嵌套
  * Created by evanyu on 16/9/5.
  */
-public class CustomRadioGroup extends LinearLayout {
+public class SuperRadioGroup extends LinearLayout {
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;
     // tracks children radio buttons checked state
@@ -30,14 +30,14 @@ public class CustomRadioGroup extends LinearLayout {
     /**
      * {@inheritDoc}
      */
-    public CustomRadioGroup(Context context) {
+    public SuperRadioGroup(Context context) {
         this(context, null);
     }
 
     /**
      * {@inheritDoc}
      */
-    public CustomRadioGroup(Context context, AttributeSet attrs) {
+    public SuperRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
@@ -76,17 +76,29 @@ public class CustomRadioGroup extends LinearLayout {
     }
 
     /**
+     * 递归查找指定View中所有的CompoundButton id
+     */
+    public static List<Integer> findAllCompoundButtonId(View view) {
+        List<CompoundButton> list = findAllCompoundButton(view);
+        List<Integer> ids = new ArrayList<>();
+        for (CompoundButton btn : list) {
+            ids.add(btn.getId());
+        }
+        return ids;
+    }
+
+    /**
      * 递归查找具有选中属性的子控件
      */
-    private static List<CompoundButton> findCheckedView(View child) {
+    public static List<CompoundButton> findAllCompoundButton(View view) {
         List<CompoundButton> allCompoundButtonList = null;
-        if (child instanceof CompoundButton) {
+        if (view instanceof CompoundButton) {
             allCompoundButtonList = new ArrayList<CompoundButton>();
-            allCompoundButtonList.add((CompoundButton) child);
-        } else if (child instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) child;
+            allCompoundButtonList.add((CompoundButton) view);
+        } else if (view instanceof ViewGroup) {
+            ViewGroup group = (ViewGroup) view;
             for (int i = 0; i < group.getChildCount(); i++) {
-                List<CompoundButton> allChildCompoundButtonList = findCheckedView(group.getChildAt(i));
+                List<CompoundButton> allChildCompoundButtonList = findAllCompoundButton(group.getChildAt(i));
                 if (allChildCompoundButtonList != null) {
                     if (allCompoundButtonList == null) {
                         allCompoundButtonList = new ArrayList<CompoundButton>();
@@ -98,26 +110,9 @@ public class CustomRadioGroup extends LinearLayout {
         return allCompoundButtonList;
     }
 
-    /**
-     * 递归查找具有选中属性的子控件
-     */
-    /*private static CompoundButton findCheckedView(View child) {
-        if (child instanceof CompoundButton)
-            return (CompoundButton) child;
-        if (child instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) child;
-            for (int i = 0, j = group.getChildCount(); i < j; i++) {
-                CompoundButton check = findCheckedView(group.getChildAt(i));
-                if (check != null)
-                    return check;
-            }
-        }
-        return null; // 没有找到CompoundButton
-    }*/
     @Override
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
-//        final CompoundButton view = findCheckedView(child);
-        List<CompoundButton> list = findCheckedView(child);
+        List<CompoundButton> list = findAllCompoundButton(child);
         for (CompoundButton view : list) {
             if (view != null) {
                 if (view.isChecked()) {
@@ -213,7 +208,7 @@ public class CustomRadioGroup extends LinearLayout {
      */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new CustomRadioGroup.LayoutParams(getContext(), attrs);
+        return new SuperRadioGroup.LayoutParams(getContext(), attrs);
     }
 
     /**
@@ -221,7 +216,7 @@ public class CustomRadioGroup extends LinearLayout {
      */
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof CustomRadioGroup.LayoutParams;
+        return p instanceof SuperRadioGroup.LayoutParams;
     }
 
     @Override
@@ -275,8 +270,8 @@ public class CustomRadioGroup extends LinearLayout {
 
         /**
          * <p>Fixes the child's width to
-         * {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT} and the child's
-         * height to  {@link android.view.ViewGroup.LayoutParams#WRAP_CONTENT}
+         * {@link ViewGroup.LayoutParams#WRAP_CONTENT} and the child's
+         * height to  {@link ViewGroup.LayoutParams#WRAP_CONTENT}
          * when not specified in the XML file.</p>
          *
          * @param a          the styled attributes set
@@ -312,7 +307,7 @@ public class CustomRadioGroup extends LinearLayout {
          * @param group     the group in which the checked radio button has changed
          * @param checkedId the unique identifier of the newly checked radio button
          */
-        public void onCheckedChanged(CustomRadioGroup group, int checkedId);
+        public void onCheckedChanged(SuperRadioGroup group, int checkedId);
     }
 
     private class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
@@ -338,23 +333,21 @@ public class CustomRadioGroup extends LinearLayout {
      * to another listener. This allows the table layout to set its own internal
      * hierarchy change listener without preventing the user to setup his.</p>
      */
-    private class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
-        private ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
+    private class PassThroughHierarchyChangeListener implements OnHierarchyChangeListener {
+        private OnHierarchyChangeListener mOnHierarchyChangeListener;
 
         /**
          * {@inheritDoc}
          */
-        // @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         public void onChildViewAdded(View parent, View child) {
-            if (parent == CustomRadioGroup.this) {
-                // CompoundButton view = findCheckedView(child); // 查找子控件
-                List<CompoundButton> list = findCheckedView(child);
+            if (parent == SuperRadioGroup.this) {
+                // CompoundButton view = findAllCompoundButton(child); // 查找子控件
+                List<CompoundButton> list = findAllCompoundButton(child);
                 for (CompoundButton view : list) {
                     if (view != null) {
                         int id = view.getId();
                         // generates an id if it's missing
-                        if (id == View.NO_ID /*&& Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1*/) {
-                            // id = View.generateViewId();
+                        if (id == View.NO_ID) {
                             id = ViewIdGenerator.generateViewId();
                             view.setId(id);
                         }
@@ -372,9 +365,8 @@ public class CustomRadioGroup extends LinearLayout {
          * {@inheritDoc}
          */
         public void onChildViewRemoved(View parent, View child) {
-            if (parent == CustomRadioGroup.this) {
-                // CompoundButton view = findCheckedView(child); // 查找子控件
-                List<CompoundButton> list = findCheckedView(child);
+            if (parent == SuperRadioGroup.this) {
+                List<CompoundButton> list = findAllCompoundButton(child);
                 for (CompoundButton view : list) {
                     if (view != null) {
                         view.setOnCheckedChangeListener(null);

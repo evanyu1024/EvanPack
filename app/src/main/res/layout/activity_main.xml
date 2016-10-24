@@ -32,25 +32,25 @@
             android:id="@+id/rbtn_home"
             style="@style/home_tab_style"
             android:drawableTop="@drawable/slt_menu_home"
-            android:text="首页" />
+            android:text="one" />
 
         <RadioButton
             android:id="@+id/rbtn_product"
             style="@style/home_tab_style"
             android:drawableTop="@drawable/slt_menu_product"
-            android:text="产品" />
+            android:text="two" />
 
         <RadioButton
             android:id="@+id/rbtn_find"
             style="@style/home_tab_style"
             android:drawableTop="@drawable/slt_menu_find"
-            android:text="发现" />
+            android:text="three" />
 
         <RadioButton
             android:id="@+id/rbtn_mine"
             style="@style/home_tab_style"
             android:drawableTop="@drawable/slt_menu_mine"
-            android:text="我的" />
+            android:text="four" />
 
     </com.evan.demo.ui.widget.TabGroup>
 

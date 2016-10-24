@@ -32,7 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />\
+        <activity android:name=".ui.activity.SuperRadioGroupDemo" />
+        <activity android:name=".ui.activity.TabGroupDemo" />
         <activity android:name=".ui.activity.FeedbackActivity" />
         <activity android:name=".ui.activity.ToastTestActivity" />
         <activity android:name=".ui.activity.StorageUtilsTestActivity" />

@@ -43,13 +43,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/evanDebug/jni" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/evanDebug/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/evanDebug/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/evan/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/evan/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/evan/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/evan/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/evan/debug" isTestSource="true" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/evan/debug" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/evan/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/test/evan/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testEvanDebug/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/testEvanDebug/resources" type="java-test-resource" />
@@ -59,6 +52,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/testEvanDebug/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testEvanDebug/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/testEvanDebug/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/evan/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/evan/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/evan/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/evan/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/apt/androidTest/evan/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/evan/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/resValues/androidTest/evan/debug" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/evan/res" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/evan/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/evan/assets" type="java-resource" />
