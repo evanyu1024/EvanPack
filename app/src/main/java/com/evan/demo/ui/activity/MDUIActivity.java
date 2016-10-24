@@ -24,12 +24,12 @@ public class MDUIActivity extends BaseListActivity {
     @Override
     protected void onCreate() {
         super.onCreate();
-        ArrayAdapter<ActivityInfo> adapter = new ArrayAdapter<ActivityInfo>(mActivity, android.R.layout.simple_list_item_1, mActivityList);
+        ArrayAdapter<ActivityInfo> adapter = new ArrayAdapter<ActivityInfo>(mContext, android.R.layout.simple_list_item_1, mActivityList);
         setListAdapter(adapter);
         setOnListItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                IntentUtils.startActivity(mActivity, mActivityList.get(position).clazz);
+                IntentUtils.startActivity(mContext, mActivityList.get(position).clazz);
             }
         });
     }

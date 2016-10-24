@@ -85,7 +85,7 @@ public class ListSampleActivity extends AppCompatActivity {
 
     private void loadDataTest2() {
         /*Observable.just("aaa", "bbb", "ccc")
-                .subscribe(new Action1<String>() {
+                .subscribe(newengine Action1<String>() {
                     @Override
                     public void call(String s) {
                         data.add(s);
@@ -115,7 +115,7 @@ public class ListSampleActivity extends AppCompatActivity {
                 subscriber.onCompleted();
             }
         })
-        /*.filter(new Func1<String, Boolean>() { // 过滤
+        /*.filter(newengine Func1<String, Boolean>() { // 过滤
             @Override
             public Boolean call(String s) {
                 return s.contains("1");

@@ -81,7 +81,7 @@ public class PtrActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             String date = DateUtils.formatDateTime(mContext, System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME);
-            data.addFirst("new item " + date);
+            data.addFirst("newengine item " + date);
             mAdapter.notifyDataSetChanged();
             // 通知刷新结束
             mPtrList.onRefreshComplete();

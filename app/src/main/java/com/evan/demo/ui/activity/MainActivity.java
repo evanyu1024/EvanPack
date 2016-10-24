@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
 
     private List<Fragment> fragList;
     private HomeFragPagerAdapter mAdapter;
-    private String[] mTabTitles = {"首页", "产品", "发现", "我的"};
+    private String[] mTabTitles = {"one", "two", "three", "four"};
     private int[] mTabIcons = {R.drawable.slt_menu_home,
             R.drawable.slt_menu_product,
             R.drawable.slt_menu_find,
@@ -55,9 +55,7 @@ public class MainActivity extends BaseActivity {
         mAdapter = new HomeFragPagerAdapter();
 
         mViewpager.setAdapter(mAdapter);
-
         mViewpager.setOffscreenPageLimit(3);
-
         mTabGroup.setupWithViewPager(mViewpager, true);
         mTablayout.setupWithViewPager(mViewpager);
 
@@ -93,7 +91,7 @@ public class MainActivity extends BaseActivity {
         }
 
         public View getTabView(int position) {
-            TextView tabView = new TextView(mActivity);
+            TextView tabView = new TextView(mContext);
             tabView.setText(getPageTitle(position));
             tabView.setTextSize(12);
             // tabView.setTextColor(R.drawable.slt_home_tab_textcolor);

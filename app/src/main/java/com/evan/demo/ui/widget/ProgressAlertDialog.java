@@ -42,7 +42,7 @@ public class ProgressAlertDialog extends AlertDialog {
         }
         // 初始化Dialog中显示的View
         LayoutInflater inflater = LayoutInflater.from(context);
-        FrameLayout rootView = (FrameLayout) inflater.inflate(R.layout.base_content_container, null);
+        FrameLayout rootView = (FrameLayout) inflater.inflate(R.layout.base_container, null);
         rootView.removeAllViews();
         inflater.inflate(layoutResId, rootView, true);
 

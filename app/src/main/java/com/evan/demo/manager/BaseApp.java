@@ -1,4 +1,4 @@
-package com.evan.demo.manager.application;
+package com.evan.demo.manager;
 
 import android.app.Application;
 import android.content.Context;
@@ -10,11 +10,12 @@ import com.evan.demo.utils.CrashHandler;
 import com.umeng.analytics.MobclickAgent;
 
 /**
+ * BaseApplication
  * Created by evanyu on 16/6/4.
  */
 public class BaseApp extends Application {
 
-    private static Context sContext;
+    private static BaseApp sInstance;
     public static Thread sMainThread = Thread.currentThread();
 
     public static Handler sMainThreadHandler = new Handler();
@@ -22,12 +23,16 @@ public class BaseApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        sContext = this;
+        sInstance = this;
 
         Log.d("mtag", "BaseApp#onCreate");
 
         initUMeng();
         initCrashHandler();
+    }
+
+    public static BaseApp getInstance() {
+        return sInstance;
     }
 
     private void initCrashHandler() {
@@ -48,10 +53,6 @@ public class BaseApp extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
-    }
-
-    public static Context getContext() {
-        return sContext;
     }
 
     public static Thread getMainThread() {

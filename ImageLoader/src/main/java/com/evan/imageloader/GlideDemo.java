@@ -48,7 +48,7 @@ public class GlideDemo extends AppCompatActivity {
                 //.load(readFromAssets("bd_logo.png")) // 资产目录中的图片
                 //.load(R.raw.splash_gif) // gif图片(这行代码存在问题,加载很慢,待解决)
                 //.load(resIdToUri(this, R.drawable.bd_logo)) // uri对象(uri不必从资源中获取,可以是任何uri)
-                //.load(Uri.fromFile(new File(path))) // 加载视频(只能是本地视频)
+                //.load(Uri.fromFile(newengine File(path))) // 加载视频(只能是本地视频)
                 //.asGif() // 判断url是否是一个gif图,如果不是的话就加载失败(即使这个url访问的是一个完整的图片)
                 .asBitmap() // 如果是gif图则只会加载gif的第一祯
                 .placeholder(R.mipmap.ic_launcher) // 占位图(加载时显示)

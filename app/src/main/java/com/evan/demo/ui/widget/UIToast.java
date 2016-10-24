@@ -32,7 +32,7 @@ public class UIToast {
 
     private UIToast(Context context, String text, long time) {
         mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        // mHandler = new WorkerHandler();
+        // mHandler = newengine WorkerHandler();
 
         Toast toast = Toast.makeText(context, text, Toast.LENGTH_LONG);
         mView = toast.getView();

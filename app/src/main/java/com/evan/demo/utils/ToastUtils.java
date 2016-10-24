@@ -1,13 +1,10 @@
 package com.evan.demo.utils;
 
+import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.evan.demo.manager.application.BaseApp;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import com.evan.demo.manager.BaseApp;
 
 /**
  * Toast工具类
@@ -15,9 +12,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ToastUtils {
 
-    private static boolean canShowToast = true; // 控制是否能够显示Toast
     private static Toast mToast;
-    private static final ScheduledExecutorService SHOW_TOAST_EXECUTOR = Executors.newSingleThreadScheduledExecutor();
+    private static Handler sHandler = new Handler(Looper.getMainLooper());
 
     // 私有化构造方法
     private ToastUtils() {
@@ -44,7 +40,7 @@ public class ToastUtils {
             showToast(text, duration);
         } else {
             // 子线程
-            BaseApp.getMainThreadHandler().post(new Runnable() {
+            sHandler.post(new Runnable() {
                 @Override
                 public void run() {
                     showToast(text, duration);
@@ -54,21 +50,11 @@ public class ToastUtils {
     }
 
     private static void showToast(String text, int duration) {
-        if (!canShowToast) return;
-        canShowToast = false;
-        if (mToast == null) {
-            mToast = Toast.makeText(BaseApp.getContext(), "", Toast.LENGTH_SHORT);
+        if (mToast != null) {
+            mToast.cancel();
         }
-        mToast.setText(text);
-        mToast.setDuration(duration);
+        mToast = Toast.makeText(BaseApp.getInstance(), text, duration);
         mToast.show();
-        final long delay = duration == Toast.LENGTH_LONG ? 3500 : 2000;
-        SHOW_TOAST_EXECUTOR.schedule(new Runnable() {
-            @Override
-            public void run() {
-                canShowToast = true;
-            }
-        }, delay, TimeUnit.MILLISECONDS);
     }
 
 }

@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
     public void doPost(View view) {
         OkHttpClient client = new OkHttpClient();
         // 这里的RequestBody对象的创建从3.0版本开始发生了改变
-        // 3.0之前使用: new FormEncodingBuilder().add(key,value).add(key,value)...build();
-        // 3.0之后使用: new FormBody.Builder().add()...build();
+        // 3.0之前使用: newengine FormEncodingBuilder().add(key,value).add(key,value)...build();
+        // 3.0之后使用: newengine FormBody.Builder().add()...build();
         RequestBody requestBody = new FormBody.Builder()
                 .add("app", "weather.today")
                 .add("weaid", "1")

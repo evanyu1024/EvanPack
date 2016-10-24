@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 /*
                 // 创建Retrofit对象
-                Retrofit retrofit = new Retrofit.Builder()
+                Retrofit retrofit = newengine Retrofit.Builder()
                         .baseUrl(NetConstant.BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create()) // 添加 GsonConverter (使用GSON将JSON数据解析成对象)
                         .build();

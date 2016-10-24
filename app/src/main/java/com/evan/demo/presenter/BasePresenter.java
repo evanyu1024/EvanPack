@@ -1,60 +1,124 @@
 package com.evan.demo.presenter;
 
+import android.content.Context;
+import android.content.Intent;
+
 import com.evan.demo.ui.iview.IBaseView;
 
 /**
- * Created by evanyu on 16/7/14.
+ * Presenter基类
+ * Created by evanyu on 16/9/8.
  */
-public abstract class BasePresenter<T extends IBaseView> implements IPresenter<T> {
+public abstract class BasePresenter<T extends IBaseView> {
 
     protected T mView;
+    protected Context mContext;
 
-    public BasePresenter(T view) {
-        attachView(view);
+    /**
+     * 构造方法
+     */
+    private BasePresenter() {
     }
 
     /**
-     * 启动Presenter,初始化数据
+     * 构造方法,同时绑定指定View
+     **/
+    public BasePresenter(T view) {
+        if(view == null) {
+            throw new RuntimeException("view must be not null");
+        }
+        attachView(view);
+        mContext = view.getContext();
+    }
+
+    /**
+     * 获取当前已关联的View
+     *
+     * @return
      */
-    public abstract void start();
-
-    @Override
-    public void attachView(T view) {
-        this.mView = view;
-    }
-
-    @Override
-    public void detachView() {
-        mView = null;
-    }
-
-    @Override
     public T getView() {
         return mView;
     }
 
-    @Override
+    /**
+     * 关联指定View
+     */
+    public void attachView(T view) {
+        mView = view;
+        onAttachView();
+    }
+
+    /**
+     * 取消与View的关联
+     */
+    public void detatchView() {
+        if (mView != null) {
+            mView = null;
+            onDetachView();
+        }
+    }
+
+    /**
+     * 当成功关联View时调用
+     */
+    public void onAttachView() {
+        // empty
+    }
+
+    /**
+     * 当成功取消关联View时调用
+     */
+    public void onDetachView() {
+        // empty
+    }
+
+    /**
+     * 判断是否已经关联View
+     */
     public boolean isViewAttached() {
         return mView != null;
     }
 
-    @Override
-    public void showToast(String msg) {
-        mView.showMessage(msg);
+    /**
+     * 显示Toast
+     * {@link IBaseView#showToast(String)}
+     */
+    public void showToast(String text) {
+        mView.showToast(text);
     }
 
-    @Override
+    /**
+     * 显示View中的进度提示
+     * {@link IBaseView#showLoading()}
+     */
     public void showLoading() {
-        mView.showLoading();
+        if (isViewAttached()) {
+            mView.showLoading();
+        }
     }
 
-    @Override
+    /**
+     * 隐藏View中的进度提示
+     * {@link IBaseView#hideLoading()}
+     */
     public void hideLoading() {
-        mView.hideLoading();
+        if (isViewAttached()) {
+            mView.hideLoading();
+        }
     }
 
-    public void onViewDestroy() {
-        detachView();
+    /**
+     * 当View销毁时调用
+     */
+    public void onViewDestory() {
+        detatchView();
+    }
+
+    /**
+     * 当Activity获取到返回值时调用
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
     }
 
 }

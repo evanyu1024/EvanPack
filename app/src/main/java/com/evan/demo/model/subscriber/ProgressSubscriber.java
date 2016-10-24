@@ -1,6 +1,6 @@
 package com.evan.demo.model.subscriber;
 
-import com.evan.demo.utils.ActivityCollector;
+import com.evan.demo.manager.ActivityCollector;
 import com.evan.demo.utils.LogUtils;
 import com.evan.demo.ui.activity.base.BaseActivity;
 

@@ -47,13 +47,13 @@ public class RecyclerViewDemo extends BaseActivity {
     }
 
     private void initView() {
-        mLineaLinearLayoutManager = new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false);
-        mGridLayoutManager = new GridLayoutManager(mActivity, 2, GridLayoutManager.VERTICAL, false);
+        mLineaLinearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        mGridLayoutManager = new GridLayoutManager(mContext, 2, GridLayoutManager.VERTICAL, false);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
-        mRecyclerView.addItemDecoration(new DefaultDividerItemDecoration(mActivity, DefaultDividerItemDecoration.VERTICAL_LIST));
-        // mRecyclerView.addItemDecoration(new DefaultDividerItemDecoration(mActivity, DefaultDividerItemDecoration.HORIZONTAL_LIST));
-        // mRecyclerView.addItemDecoration(new DefaultBorderDividerItemDecoration(50, 50));
+        mRecyclerView.addItemDecoration(new DefaultDividerItemDecoration(mContext, DefaultDividerItemDecoration.VERTICAL_LIST));
+        // mRecyclerView.addItemDecoration(newengine DefaultDividerItemDecoration(mActivity, DefaultDividerItemDecoration.HORIZONTAL_LIST));
+        // mRecyclerView.addItemDecoration(newengine DefaultBorderDividerItemDecoration(50, 50));
         mRecyclerView.setLayoutManager(mLineaLinearLayoutManager);
         mRecyclerView.setAdapter(mAdapter = new InnerAdapter());
 
@@ -106,7 +106,7 @@ public class RecyclerViewDemo extends BaseActivity {
     private class InnerAdapter extends CommonRecyclerViewAdapter<String> {
 
         public InnerAdapter() {
-            super(mActivity, mData, android.R.layout.simple_list_item_1);
+            super(mContext, mData, android.R.layout.simple_list_item_1);
         }
 
         @Override

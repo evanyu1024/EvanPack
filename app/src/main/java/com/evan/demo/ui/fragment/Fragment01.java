@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -46,12 +47,12 @@ public class Fragment01 extends BaseFragment {
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment01;
+        return R.layout.simple_listview;
     }
 
     @Override
     public void onViewCreated(View view) {
-        // ButterKnife.bind(this, view);
+        ButterKnife.bind(this, view);
         ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, mActivityList);
         mListView.setAdapter(adapter);
 

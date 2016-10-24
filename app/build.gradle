@@ -136,6 +136,8 @@ dependencies {
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["eventbus"]
     compile rootProject.ext.dependencies["ultra-ptr"]
+    compile rootProject.ext.dependencies["persistentCookieJar"]
+    compile rootProject.ext.dependencies["loggingInterceptor"]
     // compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }
 

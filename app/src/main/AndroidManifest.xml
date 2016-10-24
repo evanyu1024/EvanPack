@@ -17,7 +17,7 @@
         android:value="${UMENG_CHANNEL_VALUE}" />
 
     <application
-        android:name=".manager.application.BaseApp"
+        android:name=".manager.BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -43,6 +43,7 @@
         <activity android:name=".ui.activity.RecyclerViewDemo" />
         <activity android:name=".ui.activity.VitamioDemo" />
         <activity android:name=".ui.activity.VideoViewDemo" />
+        <activity android:name=".ui.activity.KeyBoardDemo" />
     </application>
 
 </manifest>

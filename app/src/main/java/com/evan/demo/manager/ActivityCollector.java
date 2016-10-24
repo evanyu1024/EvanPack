@@ -1,4 +1,4 @@
-package com.evan.demo.utils;
+package com.evan.demo.manager;
 
 import android.app.Activity;
 
@@ -13,24 +13,24 @@ import java.util.List;
  */
 public class ActivityCollector {
 
-    private static List<Activity> list = new ArrayList<>();
+    private static List<Activity> sList = new ArrayList<>();
 
-    private static BaseActivity mForegroundActivity;
+    private static BaseActivity sForegroundActivity;
 
     // 私有化构造方法
     private ActivityCollector() {
     }
 
     public static void addActivity(Activity activity) {
-        list.add(activity);
+        sList.add(activity);
     }
 
     public static void removeActivity(Activity activity) {
-        list.remove(activity);
+        sList.remove(activity);
     }
 
     public static void finishAll() {
-        for (Activity activity : list) {
+        for (Activity activity : sList) {
             if (!activity.isFinishing()) {
                 activity.finish();
             }
@@ -41,7 +41,7 @@ public class ActivityCollector {
      * 设置前台Activity
      */
     public static void setForefroundActivity(BaseActivity activity) {
-        mForegroundActivity = activity;
+        sForegroundActivity = activity;
     }
 
     /**
@@ -49,7 +49,7 @@ public class ActivityCollector {
      * @return
      */
     public static BaseActivity getForegroundActivity() {
-        return mForegroundActivity;
+        return sForegroundActivity;
     }
 
 }

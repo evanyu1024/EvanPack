@@ -1,12 +1,12 @@
 package com.evan.demo.model.engine.impl;
 
-import com.evan.demo.utils.LogUtils;
 import com.evan.demo.model.bean.WeatherData;
 import com.evan.demo.model.bean.WeatherListData;
 import com.evan.demo.model.constant.NetConstant;
 import com.evan.demo.model.engine.IWeatherEngine;
-import com.evan.demo.model.net.OkHttpFractory;
+import com.evan.demo.model.net.manager.OkHttpFractory;
 import com.evan.demo.model.net.restapi.WeatherService;
+import com.evan.demo.utils.LogUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +35,7 @@ public class WeatherEngineImpl implements IWeatherEngine {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(NetConstant.BASE_URL)
-                .client(OkHttpFractory.getOkHttpClient())
+                .client(OkHttpFractory.createDefaultOkHttpClient())
                 .build();
         mWeatherService = retrofit.create(WeatherService.class);
         mCompositeSubscription = new CompositeSubscription();

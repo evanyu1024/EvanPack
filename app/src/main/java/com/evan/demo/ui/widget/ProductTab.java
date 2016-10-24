@@ -45,7 +45,7 @@ public class ProductTab extends FrameLayout {
         // rbtnTab.setId(View.generateViewId());
         rbtnTab.setId(ViewIdGenerator.generateViewId());
         rbtnTab.setChecked(true);
-        /*rbtnTab.setOnClickListener(new OnClickListener() {
+        /*rbtnTab.setOnClickListener(newengine OnClickListener() {
             @Override
             public void onClick(View v) {
                 ToastUtils.showToast("哈哈..." + rbtnTab.getId());

@@ -35,7 +35,7 @@ public class UltraPtrActivity extends AppCompatActivity {
         mPtrFml.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                /*frame.postDelayed(new Runnable() {
+                /*frame.postDelayed(newengine Runnable() {
                     @Override
                     public void run() {
                         mPtrFml.refreshComplete();
@@ -54,13 +54,13 @@ public class UltraPtrActivity extends AppCompatActivity {
                     }
                 }).start();
 
-                // mPtrFml.setLastUpdateTimeRelateObject(new Object());
+                // mPtrFml.setLastUpdateTimeRelateObject(newengine Object());
             }
         });
 
         mPtrFml.setLastUpdateTimeRelateObject(this);
 
-//        TextView ptrHeader = new TextView(this);
+//        TextView ptrHeader = newengine TextView(this);
 //        ptrHeader.setText("下拉刷新");
 //        mPtrFml.setHeaderView(ptrHeader);
     }
