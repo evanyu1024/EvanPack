@@ -12,6 +12,7 @@ import com.evan.demo.ui.activity.CustomKeyboardDemo;
 import com.evan.demo.ui.activity.LoginActivity;
 import com.evan.demo.ui.activity.MDUIActivity;
 import com.evan.demo.ui.activity.RadioGroupTestActivity;
+import com.evan.demo.ui.activity.RecyclerViewAdapterDemo;
 import com.evan.demo.ui.activity.StorageUtilsTestActivity;
 import com.evan.demo.ui.activity.SuperRadioGroupDemo;
 import com.evan.demo.ui.activity.TabGroupDemo;
@@ -41,6 +42,7 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(LoginActivity.class, "MVP Demo"),
             new ActivityInfo(SuperRadioGroupDemo.class, "SuperRadioGroupDemo"),
             new ActivityInfo(TabGroupDemo.class, "TabGroupDemo"),
+            new ActivityInfo(RecyclerViewAdapterDemo.class, "RecyclerViewAdapter"),
             new ActivityInfo(ToastTestActivity.class, "ToastUtils"),
             new ActivityInfo(StorageUtilsTestActivity.class, "StorageUtils"),
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
