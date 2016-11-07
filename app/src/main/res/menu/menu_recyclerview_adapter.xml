@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_add_headerview"
+        android:orderInCategory="1"
+        android:title="add header view" />
+
+    <item
+        android:id="@+id/menu_remove_headerview"
+        android:orderInCategory="2"
+        android:title="remove header view" />
+
+    <item
+        android:id="@+id/menu_add_footerview"
+        android:orderInCategory="3"
+        android:title="add footer view" />
+
+    <item
+        android:id="@+id/menu_remove_footerview"
+        android:orderInCategory="4"
+        android:title="remove footer view" />
+
+    <item
+        android:id="@+id/menu_add_item"
+        android:orderInCategory="5"
+        android:title="add item" />
+
+</menu>

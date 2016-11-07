@@ -33,20 +33,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.LoginActivity" />\
-        <activity android:name=".ui.activity.SuperRadioGroupDemo" />
-        <activity android:name=".ui.activity.TabGroupDemo" />
-        <activity android:name=".ui.activity.RecyclerViewAdapterDemo" />
-        <activity android:name=".ui.activity.FeedbackActivity" />
-        <activity android:name=".ui.activity.ToastTestActivity" />
-        <activity android:name=".ui.activity.StorageUtilsTestActivity" />
-        <activity android:name=".ui.activity.RadioGroupTestActivity" />
-        <activity android:name=".ui.activity.ConstraintLayoutDemo" />
-        <activity android:name=".ui.activity.CustomKeyboardDemo" />
-        <activity android:name=".ui.activity.MDUIActivity" />
-        <activity android:name=".ui.activity.RecyclerViewDemo" />
-        <activity android:name=".ui.activity.VitamioDemo" />
-        <activity android:name=".ui.activity.VideoViewDemo" />
-        <activity android:name=".ui.activity.KeyBoardDemo" />
+        <activity android:name=".ui.activity.demoview.SuperRadioGroupDemo" />
+        <activity android:name=".ui.activity.demoview.TabGroupDemo" />
+        <activity android:name=".ui.activity.demoview.RecyclerViewAdapterDemo" />
+        <activity android:name=".ui.activity.demoview.FeedbackActivity" />
+        <activity android:name=".ui.activity.demoview.ToastTestActivity" />
+        <activity android:name=".ui.activity.demoview.StorageUtilsTestActivity" />
+        <activity android:name=".ui.activity.demoview.RadioGroupTestActivity" />
+        <activity android:name=".ui.activity.demoview.ConstraintLayoutDemo" />
+        <activity android:name=".ui.activity.demoview.CustomKeyboardDemo" />
+        <activity android:name=".ui.activity.demoview.MDUIDemo" />
+        <activity android:name=".ui.activity.demoview.RecyclerViewDemo" />
+        <activity android:name=".ui.activity.demoview.VitamioDemo" />
+        <activity android:name=".ui.activity.demoview.VideoViewDemo" />
+        <activity android:name=".ui.activity.demoview.KeyBoardDemo" />
     </application>
 
 </manifest>

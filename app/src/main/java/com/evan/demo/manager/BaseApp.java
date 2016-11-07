@@ -4,10 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
-import android.util.Log;
+import android.view.ViewConfiguration;
 
 import com.evan.demo.utils.CrashHandler;
-import com.umeng.analytics.MobclickAgent;
+
+import java.lang.reflect.Field;
 
 /**
  * BaseApplication
@@ -24,11 +25,19 @@ public class BaseApp extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-
-        Log.d("mtag", "BaseApp#onCreate");
-
-        initUMeng();
         initCrashHandler();
+
+        // 强制显示actionbar中的overflow
+        try {
+            ViewConfiguration config = ViewConfiguration.get(this);
+            Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+            if (menuKeyField != null) {
+                menuKeyField.setAccessible(true);
+                menuKeyField.setBoolean(config, false);
+            }
+        } catch (Exception ex) {
+            // Ignore
+        }
     }
 
     public static BaseApp getInstance() {
@@ -38,15 +47,6 @@ public class BaseApp extends Application {
     private void initCrashHandler() {
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(this);
-    }
-
-    private void initUMeng() {
-        // 禁止默认的页面统计方式(默认只会统计Activity的页面跳转)
-        MobclickAgent.openActivityDurationTrack(false);
-
-        // 设置是否对日志信息进行加密, 默认false(不加密)
-        // AnalyticsConfig.enableEncrypt(boolean enable);//6.0.0版本以前
-        // MobclickAgent.enableEncrypt(true);//6.0.0版本及以后
     }
 
     @Override

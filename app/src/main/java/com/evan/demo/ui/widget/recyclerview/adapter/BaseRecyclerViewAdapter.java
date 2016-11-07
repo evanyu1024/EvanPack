@@ -118,7 +118,7 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        convert((InnerViewHolder) holder, mData.get(position));
+        convert((InnerViewHolder) holder, mData.get(position), position);
     }
 
     /**
@@ -156,7 +156,7 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
      * @param holder
      * @param itemBean
      */
-    public abstract void convert(InnerViewHolder holder, E itemBean);
+    public abstract void convert(InnerViewHolder holder, E itemBean, int position);
 
     /**
      * 持有者类

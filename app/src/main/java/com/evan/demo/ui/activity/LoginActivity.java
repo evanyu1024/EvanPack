@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.evan.demo.R;
-import com.evan.demo.presenter.BasePresenter;
 import com.evan.demo.presenter.LoginPresenter;
 import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.ui.iview.ILoginView;
@@ -17,14 +16,13 @@ import butterknife.OnClick;
 /**
  * MVP示例
  */
-public class LoginActivity extends BaseActivity implements ILoginView {
+public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView {
 
     @BindView(R.id.et_account)
     EditText mEtName;
     @BindView(R.id.et_pwd)
     EditText mEtLoginPwd;
 
-    private LoginPresenter mPresenter;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -34,8 +32,8 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     }
 
     @Override
-    protected BasePresenter initPresenter() {
-        return mPresenter = new LoginPresenter(this);
+    protected LoginPresenter initPresenter() {
+        return new LoginPresenter(this);
     }
 
     @OnClick(R.id.btn_login)

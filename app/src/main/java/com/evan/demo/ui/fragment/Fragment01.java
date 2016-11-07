@@ -7,18 +7,18 @@ import android.widget.ListView;
 
 import com.evan.demo.R;
 import com.evan.demo.model.bean.ActivityInfo;
-import com.evan.demo.ui.activity.ConstraintLayoutDemo;
-import com.evan.demo.ui.activity.CustomKeyboardDemo;
+import com.evan.demo.ui.activity.demoview.ConstraintLayoutDemo;
+import com.evan.demo.ui.activity.demoview.CustomKeyboardDemo;
 import com.evan.demo.ui.activity.LoginActivity;
-import com.evan.demo.ui.activity.MDUIActivity;
-import com.evan.demo.ui.activity.RadioGroupTestActivity;
-import com.evan.demo.ui.activity.RecyclerViewAdapterDemo;
-import com.evan.demo.ui.activity.StorageUtilsTestActivity;
-import com.evan.demo.ui.activity.SuperRadioGroupDemo;
-import com.evan.demo.ui.activity.TabGroupDemo;
-import com.evan.demo.ui.activity.ToastTestActivity;
-import com.evan.demo.ui.activity.VideoViewDemo;
-import com.evan.demo.ui.activity.VitamioDemo;
+import com.evan.demo.ui.activity.demoview.MDUIDemo;
+import com.evan.demo.ui.activity.demoview.RadioGroupTestActivity;
+import com.evan.demo.ui.activity.demoview.RecyclerViewAdapterDemo;
+import com.evan.demo.ui.activity.demoview.StorageUtilsTestActivity;
+import com.evan.demo.ui.activity.demoview.SuperRadioGroupDemo;
+import com.evan.demo.ui.activity.demoview.TabGroupDemo;
+import com.evan.demo.ui.activity.demoview.ToastTestActivity;
+import com.evan.demo.ui.activity.demoview.VideoViewDemo;
+import com.evan.demo.ui.activity.demoview.VitamioDemo;
 import com.evan.demo.ui.fragment.base.BaseFragment;
 import com.evan.demo.utils.IntentUtils;
 
@@ -48,7 +48,7 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
             new ActivityInfo(ConstraintLayoutDemo.class, "ConstraintLayout"),
             new ActivityInfo(CustomKeyboardDemo.class, "CustomKeyboardDemo"),
-            new ActivityInfo(MDUIActivity.class, "Metrial Design"),
+            new ActivityInfo(MDUIDemo.class, "Metrial Design"),
             new ActivityInfo(VitamioDemo.class, "VitamioDemo"),
             new ActivityInfo(VideoViewDemo.class, "VideoViewDemo")
     );

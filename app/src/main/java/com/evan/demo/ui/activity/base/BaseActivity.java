@@ -8,7 +8,6 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.FrameLayout;
 
 import com.evan.demo.R;
@@ -20,11 +19,11 @@ import com.evan.demo.utils.ToastUtils;
 /**
  * Created by evanyu on 16/6/8.
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener, IBaseView {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements View.OnClickListener, IBaseView {
 
     protected Context mContext = this;
     protected Bundle mSavedInstanceState;
-    private BasePresenter mPresenter;
+    protected P mPresenter;
     protected FrameLayout mBaseContainer;
     private View mLoadingView;
     private boolean isLoading = false; // 记录当前页面是否正在显示加载提示
@@ -33,7 +32,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 去除标题栏
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        // supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         // 如果是继承自Activity,则需要执行以下代码
         // requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -72,7 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      * 初始化Presenter
      * 默认返回null,创建Presenter时子类需要改写此方法并返回Presenter对象
      */
-    protected BasePresenter initPresenter() {
+    protected P initPresenter() {
         return null;
     }
 
