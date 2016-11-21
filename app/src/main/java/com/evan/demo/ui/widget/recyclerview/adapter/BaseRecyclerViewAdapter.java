@@ -111,7 +111,6 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
         }
 
         View itemView = mInflater.inflate(layoutId, parent, false);
-
         InnerViewHolder viewHolder = new InnerViewHolder(itemView);
         return viewHolder;
     }
@@ -180,7 +179,7 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
                     @Override
                     public void onClick(View view) {
                         if (mOnItemClickListener != null) {
-                            mOnItemClickListener.onItemClick(view, ((ViewGroup) view.getParent()).indexOfChild(view));
+                            mOnItemClickListener.onItemClick(view, InnerViewHolder.this.getAdapterPosition());
                         }
                     }
                 });
@@ -189,7 +188,7 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
                     @Override
                     public boolean onLongClick(View view) {
                         if (mOnItemLongClickListener != null) {
-                            return mOnItemLongClickListener.onItemLongClick(view, ((ViewGroup) view.getParent()).indexOfChild(view));
+                            return mOnItemLongClickListener.onItemLongClick(view, InnerViewHolder.this.getAdapterPosition());
                         }
                         return false;
                     }
