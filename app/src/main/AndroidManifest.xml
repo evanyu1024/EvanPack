@@ -41,7 +41,6 @@
         <activity android:name=".ui.activity.demoview.StorageUtilsTestActivity" />
         <activity android:name=".ui.activity.demoview.RadioGroupTestActivity" />
         <activity android:name=".ui.activity.demoview.ConstraintLayoutDemo" />
-        <activity android:name=".ui.activity.demoview.CustomKeyboardDemo" />
         <activity android:name=".ui.activity.demoview.MDUIDemo" />
         <activity android:name=".ui.activity.demoview.RecyclerViewDemo" />
         <activity android:name=".ui.activity.demoview.VitamioDemo" />

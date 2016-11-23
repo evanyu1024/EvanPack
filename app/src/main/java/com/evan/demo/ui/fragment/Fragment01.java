@@ -8,8 +8,8 @@ import android.widget.ListView;
 import com.evan.demo.R;
 import com.evan.demo.model.bean.ActivityInfo;
 import com.evan.demo.ui.activity.demoview.ConstraintLayoutDemo;
-import com.evan.demo.ui.activity.demoview.CustomKeyboardDemo;
 import com.evan.demo.ui.activity.LoginActivity;
+import com.evan.demo.ui.activity.demoview.KeyBoardDemo;
 import com.evan.demo.ui.activity.demoview.MDUIDemo;
 import com.evan.demo.ui.activity.demoview.RadioGroupTestActivity;
 import com.evan.demo.ui.activity.demoview.RecyclerViewAdapterDemo;
@@ -47,10 +47,10 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(StorageUtilsTestActivity.class, "StorageUtils"),
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
             new ActivityInfo(ConstraintLayoutDemo.class, "ConstraintLayout"),
-            new ActivityInfo(CustomKeyboardDemo.class, "CustomKeyboardDemo"),
             new ActivityInfo(MDUIDemo.class, "Metrial Design"),
             new ActivityInfo(VitamioDemo.class, "VitamioDemo"),
-            new ActivityInfo(VideoViewDemo.class, "VideoViewDemo")
+            new ActivityInfo(VideoViewDemo.class, "VideoViewDemo"),
+            new ActivityInfo(KeyBoardDemo.class, "KeyBoardDemo")
     );
 
     @Override
