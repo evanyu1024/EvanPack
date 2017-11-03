@@ -8,8 +8,10 @@ import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.ui.widget.MyToast;
 
 /**
+ * ToastTestActivity
  *
- * Created by evanyu on 16/8/31.
+ * @author evanyu
+ * @date 16/8/31
  */
 public class ToastTestActivity extends BaseActivity {
 

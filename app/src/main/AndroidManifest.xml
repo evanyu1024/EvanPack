@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.evan.demo">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.evan.demo">
 
     <!-- 申请权限 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <!-- 友盟SDK配置 -->
     <meta-data
         android:name="UMENG_APPKEY"
-        android:value="5757de8667e58e9189001f31" />
+        android:value="5757de8667e58e9189001f31"/>
     <meta-data
         android:name="UMENG_CHANNEL"
-        android:value="${UMENG_CHANNEL_VALUE}" />
+        android:value="${UMENG_CHANNEL_VALUE}"/>
 
     <application
         android:name=".manager.BaseApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
+        tools:replace="android:allowBackup"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -27,25 +29,25 @@
             android:name=".ui.activity.MainActivity"
             android:hardwareAccelerated="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.LoginActivity" />\
-        <activity android:name=".ui.activity.demoview.SuperRadioGroupDemo" />
-        <activity android:name=".ui.activity.demoview.TabGroupDemo" />
-        <activity android:name=".ui.activity.demoview.RecyclerViewAdapterDemo" />
-        <activity android:name=".ui.activity.demoview.FeedbackActivity" />
-        <activity android:name=".ui.activity.demoview.ToastTestActivity" />
-        <activity android:name=".ui.activity.demoview.StorageUtilsTestActivity" />
-        <activity android:name=".ui.activity.demoview.RadioGroupTestActivity" />
-        <activity android:name=".ui.activity.demoview.ConstraintLayoutDemo" />
-        <activity android:name=".ui.activity.demoview.MDUIDemo" />
-        <activity android:name=".ui.activity.demoview.RecyclerViewDemo" />
-        <activity android:name=".ui.activity.demoview.VitamioDemo" />
-        <activity android:name=".ui.activity.demoview.VideoViewDemo" />
-        <activity android:name=".ui.activity.demoview.KeyBoardDemo" />
+        <activity android:name=".ui.activity.LoginActivity"/>\
+        <activity android:name=".ui.activity.demoview.SuperRadioGroupDemo"/>
+        <activity android:name=".ui.activity.demoview.TabGroupDemo"/>
+        <activity android:name=".ui.activity.demoview.RecyclerViewAdapterDemo"/>
+        <activity android:name=".ui.activity.demoview.RecyclerViewDemo"/>
+        <activity android:name=".ui.activity.demoview.ScrollViewAndRecyclerView"/>
+        <activity android:name=".ui.activity.demoview.ToastTestActivity"/>
+        <activity android:name=".ui.activity.demoview.StorageUtilsTestActivity"/>
+        <activity android:name=".ui.activity.demoview.RadioGroupTestActivity"/>
+        <activity android:name=".ui.activity.demoview.MDUIDemo"/>
+        <activity android:name=".ui.activity.demoview.VideoViewDemo"/>
+        <activity android:name=".ui.activity.demoview.KeyBoardDemo"/>
+        <activity android:name=".ui.activity.demoview.EventDispatchDemo"/>
+        <activity android:name=".ui.activity.demoview.ScrollViewDemo"/>
     </application>
 
 </manifest>

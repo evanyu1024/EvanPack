@@ -38,6 +38,8 @@ public class BaseApp extends Application {
         } catch (Exception ex) {
             // Ignore
         }
+
+        //LogUtils.d("StringUtils.toInt(\"123456789\", -1) = " + StringUtils.toInt("123456789", -1));
     }
 
     public static BaseApp getInstance() {

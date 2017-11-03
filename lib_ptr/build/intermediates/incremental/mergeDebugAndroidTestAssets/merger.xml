@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="debug"><source path="/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/intermediates/bundles/debug/assets"/></dataSet><dataSet config="main"><source path="/Users/evanyu/workspace_as/EvanPack/lib_ptr/src/androidTest/assets"/><source path="/Users/evanyu/workspace_as/EvanPack/lib_ptr/build/generated/assets/shaders/androidTest/debug"/></dataSet></merger>

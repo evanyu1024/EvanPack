@@ -7,18 +7,20 @@ import android.widget.ListView;
 
 import com.evan.demo.R;
 import com.evan.demo.model.bean.ActivityInfo;
-import com.evan.demo.ui.activity.demoview.ConstraintLayoutDemo;
 import com.evan.demo.ui.activity.LoginActivity;
+import com.evan.demo.ui.activity.demoview.EventDispatchDemo;
 import com.evan.demo.ui.activity.demoview.KeyBoardDemo;
 import com.evan.demo.ui.activity.demoview.MDUIDemo;
 import com.evan.demo.ui.activity.demoview.RadioGroupTestActivity;
 import com.evan.demo.ui.activity.demoview.RecyclerViewAdapterDemo;
+import com.evan.demo.ui.activity.demoview.RecyclerViewDemo;
+import com.evan.demo.ui.activity.demoview.ScrollViewAndRecyclerView;
+import com.evan.demo.ui.activity.demoview.ScrollViewDemo;
 import com.evan.demo.ui.activity.demoview.StorageUtilsTestActivity;
 import com.evan.demo.ui.activity.demoview.SuperRadioGroupDemo;
 import com.evan.demo.ui.activity.demoview.TabGroupDemo;
 import com.evan.demo.ui.activity.demoview.ToastTestActivity;
 import com.evan.demo.ui.activity.demoview.VideoViewDemo;
-import com.evan.demo.ui.activity.demoview.VitamioDemo;
 import com.evan.demo.ui.fragment.base.BaseFragment;
 import com.evan.demo.utils.IntentUtils;
 
@@ -31,7 +33,9 @@ import butterknife.ButterKnife;
 
 /**
  * Fragment01
- * Created by evanyu on 16/8/9.
+ *
+ * @author evanyu
+ * @date 16/8/9
  */
 public class Fragment01 extends BaseFragment {
 
@@ -43,14 +47,16 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(SuperRadioGroupDemo.class, "SuperRadioGroupDemo"),
             new ActivityInfo(TabGroupDemo.class, "TabGroupDemo"),
             new ActivityInfo(RecyclerViewAdapterDemo.class, "RecyclerViewAdapter"),
+            new ActivityInfo(RecyclerViewDemo.class, "RecyclerViewDemo"),
+            new ActivityInfo(ScrollViewAndRecyclerView.class, "ScrollViewAndRecyclerView"),
             new ActivityInfo(ToastTestActivity.class, "ToastUtils"),
             new ActivityInfo(StorageUtilsTestActivity.class, "StorageUtils"),
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
-            new ActivityInfo(ConstraintLayoutDemo.class, "ConstraintLayout"),
             new ActivityInfo(MDUIDemo.class, "Metrial Design"),
-            new ActivityInfo(VitamioDemo.class, "VitamioDemo"),
             new ActivityInfo(VideoViewDemo.class, "VideoViewDemo"),
-            new ActivityInfo(KeyBoardDemo.class, "KeyBoardDemo")
+            new ActivityInfo(KeyBoardDemo.class, "KeyBoardDemo"),
+            new ActivityInfo(EventDispatchDemo.class, "EventDispatchDemo"),
+            new ActivityInfo(ScrollViewDemo.class, "ScrollViewDemo")
     );
 
     @Override

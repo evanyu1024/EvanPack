@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.maizijf.commonlib:utils-0.0.2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.maizijf.commonlib/utils/0.0.2/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.maizijf.commonlib/utils/0.0.2/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.maizijf.commonlib/utils/0.0.2/f0308193dbe64fa5f85fe3848ff746417bf90eb8/utils-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

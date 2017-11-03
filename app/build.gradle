@@ -96,7 +96,7 @@ bugtags {
     trackingNetworkEnabled true
 }*/
 
-// libs中存在arr文件时,需要添加一下代码,并需要在dependencies中引用
+// libs中存在arr文件时,需要添加以下代码,并需要在dependencies中引用
 repositories {
     flatDir {
         dirs 'libs'
@@ -117,7 +117,6 @@ dependencies {
     // 引用arr文件
     // compile (name: 'PullToRefresh-release', ext: 'aar')
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':InitActivity')
 
     testCompile 'junit:junit:4.12'
     compile rootProject.ext.dependencies["appcompat-v7"]
@@ -139,5 +138,10 @@ dependencies {
     compile rootProject.ext.dependencies["persistentCookieJar"]
     compile rootProject.ext.dependencies["loggingInterceptor"]
     // compile 'com.bugtags.library:bugtags-lib:latest.integration'
+
+    compile 'com.maizijf.commonlib:utils:0.0.2'
+    compile 'com.maizijf.analytics:analytics:1.0.0'
+    compile 'com.maizijf.network:network:0.0.1'
+    // compile project(':Network')
 }
 

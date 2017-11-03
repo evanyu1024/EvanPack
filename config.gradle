@@ -11,6 +11,7 @@ ext {
     dependencies = [
             "appcompat-v7"        : 'com.android.support:appcompat-v7:23.4.0',
             "recyclerview"        : 'com.android.support:recyclerview-v7:23.4.0',
+
             "design"              : 'com.android.support:design:23.4.0',
             "okhttp"              : 'com.squareup.okhttp3:okhttp:3.3.1',
             "butterknife"         : 'com.jakewharton:butterknife:8.0.1',

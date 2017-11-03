@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.evan.demo.ui.widget.MyFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#5F00">
+
+    <com.evan.demo.ui.widget.MyImageView
+        android:id="@+id/iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="@color/Grey500"/>
+
+    <com.evan.demo.ui.widget.MyButton
+        android:id="@+id/btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@color/Blue500"/>
+
+</com.evan.demo.ui.widget.MyFrameLayout>

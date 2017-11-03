@@ -19,6 +19,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrHandler;
 
 /**
  * RecyclerViewAdapter demo
@@ -32,14 +36,22 @@ public class RecyclerViewAdapterDemo extends BaseActivity {
     private List<String> mData;
     private ImageView view1, view2;
     private InnerAdapter mAdapter;
+    private PtrClassicFrameLayout mPtrFrame;
 
     @Override
     public void onCreate() {
         setContentView(R.layout.activity_recyclerview_adapter);
         ButterKnife.bind(this);
 
+        initRecyclerView();
+
+        initPtrList();
+
+    }
+
+    private void initRecyclerView() {
         mData = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 10; i++) {
             mData.add("item" + i);
         }
 
@@ -49,11 +61,25 @@ public class RecyclerViewAdapterDemo extends BaseActivity {
         view1.setImageResource(R.drawable.icon01);
         view2.setImageResource(R.drawable.icon02);
 
+        view1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showToast("view1....");
+            }
+        });
+
+        view2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.showToast("view2....");
+            }
+        });
+
         mAdapter = new InnerAdapter();
         // header view
         mAdapter.addHeaderView(view1);
         // footer view
-        mAdapter.addFooterView(view1);
+        mAdapter.addFooterView(view2);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mRecyclerView.setAdapter(mAdapter);
@@ -72,7 +98,48 @@ public class RecyclerViewAdapterDemo extends BaseActivity {
                 return false;
             }
         });
+    }
 
+    private void initPtrList() {
+
+        mPtrFrame = (PtrClassicFrameLayout) findViewById(R.id.ptr_frame);
+        mPtrFrame.setLastUpdateTimeRelateObject(this);
+        mPtrFrame.setPtrHandler(new PtrHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                updateData();
+            }
+
+            @Override
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
+                // return true;
+            }
+        });
+
+        // the following are default settings
+        mPtrFrame.setResistance(1.7f);
+        mPtrFrame.setRatioOfHeaderHeightToRefresh(1.2f);
+        mPtrFrame.setDurationToClose(200);
+        mPtrFrame.setDurationToCloseHeader(1000);
+        // default is false
+        mPtrFrame.setPullToRefresh(false);
+        // default is true
+        mPtrFrame.setKeepHeaderWhenRefresh(true);
+    }
+
+    private void updateData() {
+        mPtrFrame.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                int n = mData.size();
+                for (int i = n - 1; i < n + 9; i++) {
+                    mData.add("item" + i);
+                }
+                mAdapter.notifyDataSetChanged();
+                mPtrFrame.refreshComplete();
+            }
+        }, 2000);
     }
 
     @Override

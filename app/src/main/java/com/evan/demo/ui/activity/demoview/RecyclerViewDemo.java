@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import com.evan.demo.R;
 import com.evan.demo.ui.activity.base.BaseActivity;
 import com.evan.demo.ui.adapter.base.CommonRecyclerViewAdapter;
-import com.evan.demo.ui.widget.recyclerview.decorator.DefaultDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,10 +50,10 @@ public class RecyclerViewDemo extends BaseActivity {
         mGridLayoutManager = new GridLayoutManager(mContext, 2, GridLayoutManager.VERTICAL, false);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
-        mRecyclerView.addItemDecoration(new DefaultDividerItemDecoration(mContext, DefaultDividerItemDecoration.VERTICAL_LIST));
+        // mRecyclerView.addItemDecoration(new DefaultDividerItemDecoration(mContext, DefaultDividerItemDecoration.VERTICAL_LIST));
         // mRecyclerView.addItemDecoration(newengine DefaultDividerItemDecoration(mActivity, DefaultDividerItemDecoration.HORIZONTAL_LIST));
         // mRecyclerView.addItemDecoration(newengine DefaultBorderDividerItemDecoration(50, 50));
-        mRecyclerView.setLayoutManager(mLineaLinearLayoutManager);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
         mRecyclerView.setAdapter(mAdapter = new InnerAdapter());
 
         mPtrFrame.setPtrHandler(new PtrDefaultHandler() {
