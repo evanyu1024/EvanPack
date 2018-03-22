@@ -21,6 +21,7 @@ import com.evan.demo.ui.activity.demoview.SuperRadioGroupDemo;
 import com.evan.demo.ui.activity.demoview.TabGroupDemo;
 import com.evan.demo.ui.activity.demoview.ToastTestActivity;
 import com.evan.demo.ui.activity.demoview.VideoViewDemo;
+import com.evan.demo.ui.activity.demoview.db.DataBaseDemo;
 import com.evan.demo.ui.fragment.base.BaseFragment;
 import com.evan.demo.utils.IntentUtils;
 
@@ -56,7 +57,8 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(VideoViewDemo.class, "VideoViewDemo"),
             new ActivityInfo(KeyBoardDemo.class, "KeyBoardDemo"),
             new ActivityInfo(EventDispatchDemo.class, "EventDispatchDemo"),
-            new ActivityInfo(ScrollViewDemo.class, "ScrollViewDemo")
+            new ActivityInfo(ScrollViewDemo.class, "ScrollView"),
+            new ActivityInfo(DataBaseDemo.class, "DataBase Demo")
     );
 
     @Override

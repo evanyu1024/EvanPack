@@ -1,32 +1,49 @@
 ext {
 
-    compileSdkVersion = 23
-    buildToolsVersion = "23.0.3"
-    applicationId = "com.evan.demo"
-    minSdkVersion = 14
-    targetSdkVersion = 23
-    versionCode = 1
-    versionName = "1.0"
+    android_support_version = "26.0.2"
+
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.2",
+            minSdkVersion    : 14,
+            targetSdkVersion : 22,
+    ]
 
     dependencies = [
-            "appcompat-v7"        : 'com.android.support:appcompat-v7:23.4.0',
-            "recyclerview"        : 'com.android.support:recyclerview-v7:23.4.0',
+            "support-v4"               : "com.android.support:support-v4:${android_support_version}",
+            "support-v7-appcompat"     : "com.android.support:appcompat-v7:${android_support_version}", // 此库依赖于 v4 支持库
+            "support-v7-cardview"      : "com.android.support:cardview-v7:${android_support_version}",
+            "support-v7-recyclerview"  : "com.android.support:recyclerview-v7:${android_support_version}",
+            "support-design"           : "com.android.support:design:${android_support_version}",
+            "support-percent"          : "com.android.support:percent:${android_support_version}",
+            "support-annotations"      : "com.android.support:support-annotations:${android_support_version}",
 
-            "design"              : 'com.android.support:design:23.4.0',
-            "okhttp"              : 'com.squareup.okhttp3:okhttp:3.3.1',
-            "butterknife"         : 'com.jakewharton:butterknife:8.0.1',
-            "butterknife-compiler": 'com.jakewharton:butterknife-compiler:8.0.1',
-            "rxjava"              : 'io.reactivex:rxjava:1.1.9',
-            "retrofit2-gson"      : 'com.squareup.retrofit2:converter-gson:2.1.0',
-            "retrofit2-rxjava"    : 'com.squareup.retrofit2:adapter-rxjava:2.1.0',
-            "persistentCookieJar" : 'com.github.franmontiel:PersistentCookieJar:v1.0.0',
-            "loggingInterceptor"  : "com.squareup.okhttp3:logging-interceptor:3.0.0",
-            "rxandroid"           : 'io.reactivex:rxandroid:1.2.1',
-            "glide"               : 'com.github.bumptech.glide:glide:3.7.0',
-            "umeng-sdk"           : 'com.umeng.analytics:analytics:latest.integration',
-            "umeng-fb"            : 'com.umeng:fb:5.4.0',
-            "eventbus"            : 'org.greenrobot:eventbus:3.0.0',
-            "logger"              : 'com.github.orhanobut:logger:1.12',
-            "ultra-ptr"           : 'in.srain.cube:ultra-ptr:1.0.11'
+            "okhttp"                   : 'com.squareup.okhttp3:okhttp:3.4.1',
+            "okhttp-urlconnection"     : 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1',
+            "okhttp-loggingInterceptor": 'com.squareup.okhttp3:logging-interceptor:3.4.1',
+            "retrofit2"                : 'com.squareup.retrofit2:retrofit:2.1.0',
+            "retrofit2-gson"           : 'com.squareup.retrofit2:converter-gson:2.1.0',
+            "retrofit2-rxjava"         : 'com.squareup.retrofit2:adapter-rxjava:2.1.0',
+            "rxjava"                   : 'io.reactivex:rxjava:1.2.2',
+            "rxandroid"                : 'io.reactivex:rxandroid:1.2.1',
+            "rxjava2"                  : 'io.reactivex.rxjava2:rxjava:2.0.1',
+            "butterknife"              : 'com.jakewharton:butterknife:8.8.1',
+            "butterknife-compiler"     : 'com.jakewharton:butterknife-compiler:8.8.1',
+            "eventbus"                 : 'org.greenrobot:eventbus:3.0.0',
+            "glide"                    : 'com.github.bumptech.glide:glide:3.7.0',
+//            "glide"                    : 'com.github.bumptech.glide:glide:4.3.1',
+//            "glide-okhttp3"            : 'com.github.bumptech.glide:okhttp3-integration:4.3.1',
+//            "glide-compiler"           : 'com.github.bumptech.glide:compiler:4.3.1',
+            "picasso"                  : 'com.squareup.picasso:picasso:2.5.2',
+            "fresco"                   : 'com.facebook.fresco:fresco:1.4.0',
+            "persistentCookieJar"      : 'com.github.franmontiel:PersistentCookieJar:v1.0.1',
+            "ultra-ptr"                : 'in.srain.cube:ultra-ptr:1.0.11',
+            "gson"                     : 'com.google.code.gson:gson:2.8.0',
+            "qiniu-android-sdk"        : 'com.qiniu:qiniu-android-sdk:7.3.1',
+            "aspectjrt"                : 'org.aspectj:aspectjrt:1.8.9',
+            "scalpel"                  : 'com.jakewharton.scalpel:scalpel:1.1.2',
+            "wcdb"                     : 'com.tencent.wcdb:wcdb-android:1.0.0',
+            "zxing"                    : 'com.google.zxing:core:3.3.0',
+            "logger"                   : 'com.github.orhanobut:logger:1.12',
     ]
 }

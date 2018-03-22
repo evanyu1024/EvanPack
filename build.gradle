@@ -2,24 +2,28 @@
 apply from: "config.gradle"
 
 buildscript {
+
     repositories {
-        //mavenCentral()
+        mavenCentral()
         jcenter()
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath "io.realm:realm-gradle-plugin:2.0.1"
-        // bugtags
-        // classpath 'com.bugtags.library:bugtags-gradle:latest.integration'
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "io.realm:realm-gradle-plugin:4.3.3"
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
     }
+
 }
 
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
+        mavenCentral()
         jcenter()
-        maven {
-            url "http://192.168.33.122:8081/nexus/content/repositories/releases/"
-        }
+        google()
     }
 }
 

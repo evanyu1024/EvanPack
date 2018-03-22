@@ -1,28 +1,27 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-// 应用 Bugtags 插件
-// apply plugin: 'com.bugtags.library.plugin'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
-    def globalConfig = rootProject.extensions.getByName("ext")
 
-    compileSdkVersion globalConfig.getAt("compileSdkVersion")
-    buildToolsVersion globalConfig.getAt("buildToolsVersion")
+    def appConfig = rootProject.ext.android
+    compileSdkVersion appConfig.compileSdkVersion
+    buildToolsVersion appConfig.buildToolsVersion
 
     defaultConfig {
-        applicationId globalConfig.getAt("applicationId")
-        minSdkVersion globalConfig.getAt("minSdkVersion")
-        targetSdkVersion globalConfig.getAt("targetSdkVersion")
-        versionCode globalConfig.getAt("versionCode")
-        versionName globalConfig.getAt("versionName")
+        applicationId appConfig.applicationId
+        minSdkVersion appConfig.minSdkVersion
+        targetSdkVersion appConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
 
-        // 开启multidex,解决方法数上限为65536的限制
+        // 开启multidex，解决方法数上限为65536的限制
         multiDexEnabled = true
 
-        /*ndk {
+        ndk {
             // 设置支持的 SO 库构架
             abiFilters 'armeabi'// 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
-        }*/
+        }
     }
 
     // 签名配置
@@ -45,7 +44,7 @@ android {
         }
     }
 
-    // 多渠道打包(重复代码过多,后面有更简洁的代码实现)
+    // 多渠道打包(重复代码过多，后面有更简洁的代码实现)
     /*productFlavors {
         store360 {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "store360"]
@@ -65,47 +64,30 @@ android {
         meizu {}
     }*/
 
-    productFlavors {
-        evan {}
-        una {}
-    }
+//    productFlavors {
+//        evan {}
+//        una {}
+//    }
 
     productFlavors.all {
         flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
-}
 
-// 使用butterknife需要添加的代码
-buildscript {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    retrolambda {
+        javaVersion JavaVersion.VERSION_1_6
+    }
+
+    // libs中存在arr文件时，需要添加以下代码，并需要在dependencies中引用
     repositories {
-        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
-
-/*
-bugtags {
-    //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
-    appKey "ec4af96c497666a74266af43b3c8cbfb"  //这里是你的 appKey
-    appSecret "APP_SECRET"    //这里是你的 appSecret，管理员在设置页可以查看
-    mappingUploadEnabled true
-
-    //网络跟踪功能配置(企业版)
-    trackingNetworkEnabled true
-}*/
-
-// libs中存在arr文件时,需要添加以下代码,并需要在dependencies中引用
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
-// logger
-repositories {
-    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -119,29 +101,26 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
     testCompile 'junit:junit:4.12'
-    compile rootProject.ext.dependencies["appcompat-v7"]
-    compile rootProject.ext.dependencies["design"]
+    compile rootProject.ext.dependencies["support-v7-appcompat"]
+    compile rootProject.ext.dependencies["support-design"]
     // compile rootProject.ext.dependencies["constraint-layout"]
     // butterknife
-    apt rootProject.ext.dependencies["butterknife-compiler"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
     // compile rootProject.ext.dependencies["umeng-sdk"]
     compile rootProject.ext.dependencies["retrofit2-gson"]
     compile rootProject.ext.dependencies["retrofit2-rxjava"]
     compile rootProject.ext.dependencies["rxjava"]
     compile rootProject.ext.dependencies["rxandroid"]
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.1'
     compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["eventbus"]
     compile rootProject.ext.dependencies["ultra-ptr"]
     compile rootProject.ext.dependencies["persistentCookieJar"]
-    compile rootProject.ext.dependencies["loggingInterceptor"]
-    // compile 'com.bugtags.library:bugtags-lib:latest.integration'
+    compile rootProject.ext.dependencies["okhttp-loggingInterceptor"]
+    compile rootProject.ext.dependencies["wcdb"]
 
-    compile 'com.maizijf.commonlib:utils:0.0.2'
-    compile 'com.maizijf.analytics:analytics:1.0.0'
-    compile 'com.maizijf.network:network:0.0.1'
-    // compile project(':Network')
+    retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:2.5.1'
 }
 

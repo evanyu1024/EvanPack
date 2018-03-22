@@ -1,1 +1,1 @@
-include ':app', ':OkHttpDemo', ':RetrofitDemo', ':PullToRefreshDemo', ':WebViewDemo', ':DataBindingDemo', ':RxJavaDemo', ':test'
+include ':app', ':OkHttpDemo', ':RetrofitDemo', ':PullToRefreshDemo', ':WebViewDemo', ':DataBindingDemo', ':RxJavaDemo'

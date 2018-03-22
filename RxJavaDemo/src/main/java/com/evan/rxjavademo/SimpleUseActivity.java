@@ -37,33 +37,37 @@ public class SimpleUseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-
     public void test1(View view) {
-        final String[] arr = {"111", "222", "333"};
-        Observable.create(new Observable.OnSubscribe<String>() {
-            @Override
-            public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext(arr[0]);
-                subscriber.onNext(arr[1]);
-                subscriber.onNext(arr[2]);
-                subscriber.onCompleted();
-            }
-        }).subscribe(new Subscriber<String>() {
-            @Override
-            public void onCompleted() {
+//        Observable.create((Subscriber<? super String> subscriber) -> {
+//
+//        });
 
-            }
 
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onNext(String s) {
-                Logger.d(s);
-            }
-        });
+//        final String[] arr = {"111", "222", "333"};
+//        Observable.create(new Observable.OnSubscribe<String>() {
+//            @Override
+//            public void call(Subscriber<? super String> subscriber) {
+//                subscriber.onNext(arr[0]);
+//                subscriber.onNext(arr[1]);
+//                subscriber.onNext(arr[2]);
+//                subscriber.onCompleted();
+//            }
+//        }).subscribe(new Subscriber<String>() {
+//            @Override
+//            public void onCompleted() {
+//
+//            }
+//
+//            @Override
+//            public void onError(Throwable e) {
+//
+//            }
+//
+//            @Override
+//            public void onNext(String s) {
+//                Logger.d(s);
+//            }
+//        });
     }
 
     public void test2(View view) {
