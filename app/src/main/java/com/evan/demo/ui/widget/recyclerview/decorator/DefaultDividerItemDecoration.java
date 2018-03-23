@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.v4.view.ViewCompat;
@@ -20,30 +21,46 @@ public class DefaultDividerItemDecoration extends RecyclerView.ItemDecoration {
     };
 
     public static final int HORIZONTAL_LIST = LinearLayout.HORIZONTAL;
-
     public static final int VERTICAL_LIST = LinearLayout.VERTICAL;
 
     public Drawable mDivider;
-
     public int mOrientation;
-
     public boolean bottomDivider = false;
+    private int mMarginLeft, mMarginRight;
+    private int mDividerHeight = 1; // 分割线高度（单位：px）
 
     public DefaultDividerItemDecoration(Context context, int orientation) {
+        init(context);
         this.setDefaultDivider(context);
         this.setOrientation(orientation);
     }
 
     public DefaultDividerItemDecoration(Activity activity, int orientation, int drawableId) {
+        init(activity);
         this.setDivider(activity, drawableId);
         this.setOrientation(orientation);
     }
 
+    public DefaultDividerItemDecoration(Activity activity, int orientation, ColorDrawable color) {
+        init(activity);
+        this.setDivider(activity, color);
+        this.setOrientation(orientation);
+    }
+
+    private void init(Context context) {
+        mDividerHeight = dp2px(context, 0.5f);
+    }
+
+    public void setMarginLeft(int pxSize) {
+        this.mMarginLeft = pxSize;
+    }
+
+    public void setMarginRight(int pxSize) {
+        this.mMarginRight = pxSize;
+    }
+
     /**
      * set divider color
-     *
-     * @param activity   activity
-     * @param drawableId drawableId
      */
     private void setDivider(Activity activity, int drawableId) {
         try {
@@ -55,16 +72,21 @@ public class DefaultDividerItemDecoration extends RecyclerView.ItemDecoration {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /**
-         * set default divider color
-         */
+        // set default divider color
+        if (this.mDivider == null) this.setDefaultDivider(activity);
+    }
+
+    /**
+     * set divider color
+     */
+    private void setDivider(Context activity, ColorDrawable color) {
+        this.mDivider = color;
+        // set default divider color
         if (this.mDivider == null) this.setDefaultDivider(activity);
     }
 
     /**
      * set default divider color
-     *
-     * @param context context
      */
     private void setDefaultDivider(Context context) {
         final TypedArray typedArray = context.obtainStyledAttributes(ATTRS);
@@ -99,8 +121,8 @@ public class DefaultDividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public void drawVertical(Canvas c, RecyclerView parent) {
-        final int left = parent.getPaddingLeft();
-        final int right = parent.getWidth() - parent.getPaddingRight();
+        final int left = parent.getPaddingLeft() + mMarginLeft;
+        final int right = parent.getWidth() - parent.getPaddingRight() - mMarginRight;
 
         final int childCount = parent.getChildCount();
         int drawCount = childCount;
@@ -111,7 +133,8 @@ public class DefaultDividerItemDecoration extends RecyclerView.ItemDecoration {
                     .getLayoutParams();
             final int top = child.getBottom() + params.bottomMargin +
                     Math.round(ViewCompat.getTranslationY(child));
-            final int bottom = top + this.mDivider.getIntrinsicHeight();
+            // final int bottom = top + this.mDivider.getIntrinsicHeight();
+            final int bottom = top + mDividerHeight;
             this.mDivider.setBounds(left, top, right, bottom);
             this.mDivider.draw(c);
         }
@@ -155,10 +178,19 @@ public class DefaultDividerItemDecoration extends RecyclerView.ItemDecoration {
     @Override
     public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
         if (this.mOrientation == VERTICAL_LIST) {
-            outRect.set(0, 0, 0, this.mDivider.getIntrinsicHeight());
+            // outRect.set(0, 0, 0, this.mDivider.getIntrinsicHeight());
+            outRect.set(0, 0, 0, mDividerHeight);
         } else {
             outRect.set(0, 0, this.mDivider.getIntrinsicWidth(), 0);
         }
+    }
+
+    /**
+     * dp转换px
+     */
+    public static int dp2px(Context context, float dp) {
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
 
 }

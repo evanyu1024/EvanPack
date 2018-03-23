@@ -1,11 +1,53 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <!--导航栏底色-->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!--状态栏底色-->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--文本的默认颜色-->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!--Activity窗口的颜色-->
+        <item name="android:windowBackground">@android:color/white</item>
+        <!--按钮选中或者点击获得焦点后的颜色-->
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Toolbar样式 -->
+        <item name="toolbarStyle">@style/toolbar_style</item>
+        <item name="toolbarNavigationButtonStyle">@style/toolbar_navigation_style</item>
+
+        <!--和colorAccent相反，正常状态下按钮的颜色-->
+        <!--<item name="colorControlNormal">#ff0000</item>-->
+        <!--Button按钮正常状态颜色-->
+        <!--<item name="colorButtonNormal">@color/accent_material_light</item>-->
+        <!--EditText 输入框中字体的颜色-->
+        <!--<item name="editTextColor">@android:color/white</item>-->
+    </style>
+
+    <!--parent="Base.Widget.AppCompat.Toolbar"-->
+    <style name="toolbar_style" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="contentInsetStart">12dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="titleTextAppearance">@style/toolbar_title_style</item>
+    </style>
+
+    <!-- ToolBar中的导航图标样式 -->
+    <style name="toolbar_navigation_style" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <!--<item name="android:paddingLeft">0dp</item>-->
+        <!--<item name="android:paddingRight">0dp</item>-->
+    </style>
+
+    <!-- ToolBar中的title样式 -->
+    <style name="toolbar_title_style">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="home_tab_style">

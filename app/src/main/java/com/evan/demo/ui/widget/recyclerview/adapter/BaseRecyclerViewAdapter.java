@@ -67,6 +67,14 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
     }
 
     /**
+     * 设置数据源并刷新列表
+     */
+    public void setDataAndUpdate(List<E> data) {
+        setData(data);
+        notifyDataSetChanged();
+    }
+
+    /**
      * 添加数据源（在原有数据源中添加数据）
      */
     public void addData(List<E> data) {
@@ -77,8 +85,39 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
         }
     }
 
+    /**
+     * 添加数据源并刷新列表
+     */
+    public void addDataAndUpdate(List<E> data) {
+        addData(data);
+        notifyDataSetChanged();
+    }
+
     public List<E> getData() {
         return mData;
+    }
+
+    /**
+     * 获取指定position对应的数据对象
+     */
+    public E getItemBean(int position) {
+        E itemBean = null;
+        if (mData != null && position >= 0 && position < mData.size()) {
+            itemBean = mData.get(position);
+        }
+        return itemBean;
+    }
+
+    public int getItemPosition(RecyclerView.ViewHolder holder) {
+        int position = -1;
+        if (holder != null) {
+            position = holder.getAdapterPosition();
+        }
+        return position;
+    }
+
+    protected Context getContext() {
+        return mContext;
     }
 
     @Override
@@ -98,8 +137,16 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        InnerViewHolder viewHolder = createInnerViewHolder(parent, viewType);
+        onCreateItemListeners(viewHolder);
+        return viewHolder;
+    }
+
+    protected InnerViewHolder createInnerViewHolder(ViewGroup parent, int viewType) {
         mItemLayouts = getItemLayouts();
-        if (mItemLayouts == null) return null;
+        if (mItemLayouts == null) {
+            return null;
+        }
 
         int layoutId;
         if (mItemLayouts.length < 1) {
@@ -113,6 +160,30 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
         View itemView = mInflater.inflate(layoutId, parent, false);
         InnerViewHolder viewHolder = new InnerViewHolder(itemView);
         return viewHolder;
+    }
+
+    protected void onCreateItemListeners(final InnerViewHolder holder) {
+        View itemView = holder.getItemView();
+        if (itemView != null) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mOnItemClickListener != null) {
+                        mOnItemClickListener.onItemClick(view, getItemPosition(holder));
+                    }
+                }
+            });
+
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    if (mOnItemLongClickListener != null) {
+                        return mOnItemLongClickListener.onItemLongClick(view, getItemPosition(holder));
+                    }
+                    return false;
+                }
+            });
+        }
     }
 
     @Override
@@ -170,31 +241,31 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
             mViews = new SparseArray<>();
             mItemView = itemView;
 
-            initListener();
+//            initListener();
         }
 
-        private void initListener() {
-            if (mItemView != null) {
-                mItemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (mOnItemClickListener != null) {
-                            mOnItemClickListener.onItemClick(view, InnerViewHolder.this.getAdapterPosition());
-                        }
-                    }
-                });
-
-                mItemView.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View view) {
-                        if (mOnItemLongClickListener != null) {
-                            return mOnItemLongClickListener.onItemLongClick(view, InnerViewHolder.this.getAdapterPosition());
-                        }
-                        return false;
-                    }
-                });
-            }
-        }
+//        private void initListener() {
+//            if (mItemView != null) {
+//                mItemView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        if (mOnItemClickListener != null) {
+//                            mOnItemClickListener.onItemClick(view, InnerViewHolder.this.getAdapterPosition());
+//                        }
+//                    }
+//                });
+//
+//                mItemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                    @Override
+//                    public boolean onLongClick(View view) {
+//                        if (mOnItemLongClickListener != null) {
+//                            return mOnItemLongClickListener.onItemLongClick(view, InnerViewHolder.this.getAdapterPosition());
+//                        }
+//                        return false;
+//                    }
+//                });
+//            }
+//        }
 
         @Override
         public View getItemView() {
@@ -225,6 +296,16 @@ public abstract class BaseRecyclerViewAdapter<E> extends RecyclerView.Adapter {
             iv.setImageBitmap(bm);
         }
 
+    }
+
+    protected LayoutInflater getLayoutInflater() {
+        if (mInflater != null) {
+            return mInflater;
+        } else if (mContext != null) {
+            return LayoutInflater.from(mContext);
+        } else {
+            return null;
+        }
     }
 
 }

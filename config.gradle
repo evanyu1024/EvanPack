@@ -11,12 +11,13 @@ ext {
 
     dependencies = [
             "support-v4"               : "com.android.support:support-v4:${android_support_version}",
-            "support-v7-appcompat"     : "com.android.support:appcompat-v7:${android_support_version}", // 此库依赖于 v4 支持库
+            "support-v7-appcompat"     : "com.android.support:appcompat-v7:${android_support_version}", // 此库依赖于 v4、annotations 支持库
             "support-v7-cardview"      : "com.android.support:cardview-v7:${android_support_version}",
             "support-v7-recyclerview"  : "com.android.support:recyclerview-v7:${android_support_version}",
             "support-design"           : "com.android.support:design:${android_support_version}",
             "support-percent"          : "com.android.support:percent:${android_support_version}",
             "support-annotations"      : "com.android.support:support-annotations:${android_support_version}",
+            "support-constraint-layout": 'com.android.support.constraint:constraint-layout:1.0.2',
 
             "okhttp"                   : 'com.squareup.okhttp3:okhttp:3.4.1',
             "okhttp-urlconnection"     : 'com.squareup.okhttp3:okhttp-urlconnection:3.4.1',

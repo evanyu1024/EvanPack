@@ -91,22 +91,21 @@ android {
 }
 
 dependencies {
-    // def dependencies = rootProject.ext.dependencies
-    // compile dependencies.appcompat-v7
-    // compile dependencies.design
-    // apt dependencies.butterknife-compiler
-    // compile dependencies.butterknife
+
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
     // 引用arr文件
     // compile (name: 'PullToRefresh-release', ext: 'aar')
-    compile fileTree(include: ['*.jar'], dir: 'libs')
 
     testCompile 'junit:junit:4.12'
     compile rootProject.ext.dependencies["support-v7-appcompat"]
     compile rootProject.ext.dependencies["support-design"]
-    // compile rootProject.ext.dependencies["constraint-layout"]
+    compile rootProject.ext.dependencies["support-constraint-layout"]
+
     // butterknife
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["butterknife"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+
     // compile rootProject.ext.dependencies["umeng-sdk"]
     compile rootProject.ext.dependencies["retrofit2-gson"]
     compile rootProject.ext.dependencies["retrofit2-rxjava"]

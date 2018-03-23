@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 /**
- * RecyclerView操作工具类
- * Created by evanyu on 16/10/17.
+ * @author evanyu
+ * @date 16/10/17
  */
 public class RecyclerViewUtils {
 

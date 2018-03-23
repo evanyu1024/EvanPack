@@ -1,5 +1,7 @@
 package com.evan.demo.ui.fragment;
 
+import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,7 +12,7 @@ import com.evan.demo.model.bean.ActivityInfo;
 import com.evan.demo.ui.activity.LoginActivity;
 import com.evan.demo.ui.activity.demoview.EventDispatchDemo;
 import com.evan.demo.ui.activity.demoview.KeyBoardDemo;
-import com.evan.demo.ui.activity.demoview.MDUIDemo;
+import com.evan.demo.ui.activity.demoview.MetrialDesignDemo;
 import com.evan.demo.ui.activity.demoview.RadioGroupTestActivity;
 import com.evan.demo.ui.activity.demoview.RecyclerViewAdapterDemo;
 import com.evan.demo.ui.activity.demoview.RecyclerViewDemo;
@@ -53,7 +55,7 @@ public class Fragment01 extends BaseFragment {
             new ActivityInfo(ToastTestActivity.class, "ToastUtils"),
             new ActivityInfo(StorageUtilsTestActivity.class, "StorageUtils"),
             new ActivityInfo(RadioGroupTestActivity.class, "CustomRadioGroup"),
-            new ActivityInfo(MDUIDemo.class, "Metrial Design"),
+            new ActivityInfo(MetrialDesignDemo.class, "Metrial Design"),
             new ActivityInfo(VideoViewDemo.class, "VideoViewDemo"),
             new ActivityInfo(KeyBoardDemo.class, "KeyBoardDemo"),
             new ActivityInfo(EventDispatchDemo.class, "EventDispatchDemo"),
@@ -75,7 +77,13 @@ public class Fragment01 extends BaseFragment {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                IntentUtils.startActivity(getActivity(), mActivityList.get(position).clazz);
+                Class activityClass = mActivityList.get(position).clazz;
+                if (MetrialDesignDemo.class == activityClass) {
+                    Intent intent = new Intent(mContext, activityClass);
+                    startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), mListView, "").toBundle());
+                } else {
+                    IntentUtils.startActivity(getActivity(), activityClass);
+                }
             }
         });
     }

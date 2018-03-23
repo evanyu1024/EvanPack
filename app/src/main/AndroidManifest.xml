@@ -43,7 +43,7 @@
         <activity android:name=".ui.activity.demoview.ToastTestActivity"/>
         <activity android:name=".ui.activity.demoview.StorageUtilsTestActivity"/>
         <activity android:name=".ui.activity.demoview.RadioGroupTestActivity"/>
-        <activity android:name=".ui.activity.demoview.MDUIDemo"/>
+        <activity android:name=".ui.activity.demoview.MetrialDesignDemo"/>
         <activity android:name=".ui.activity.demoview.VideoViewDemo"/>
         <activity android:name=".ui.activity.demoview.KeyBoardDemo"/>
         <activity android:name=".ui.activity.demoview.EventDispatchDemo"/>
